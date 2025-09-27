@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alex McSween">
+
+<title>Ravelry Table</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="index_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap-e2e197985391fb31b46d14736263c620.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-dark-e2e197985391fb31b46d14736263c620.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-e2e197985391fb31b46d14736263c620.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="index_files/libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="index_files/libs/quarto-dashboard/stickythead.js"></script>
+
+
+
+<script src="index_files/libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="index_files/libs/quarto-dashboard/components.js"></script>
+
+
+
+</head>
+
+<body class="quarto-dashboard dashboard-fill fullcontent quarto-light">
+
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler hidden" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+    <div class="navbar-brand-container">
+    <a href="#"><img src="images/logo.png" alt="" class="navbar-logo light-content d-inline-block"></a>
+    <a href="#"><img src="images/logo.png" alt="" class="navbar-logo dark-content d-inline-block"></a>
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">Ravelry Table</a></div>
+        
+        <div class="navbar-author">Alex McSween</div>
+      </div>
+    </div>
+<div class="quarto-dashboard-links"><a class="quarto-dashboard-link" href="https://github.com/alexmcsw/ravelry-table"><i class="bi bi-github"></i></a><a class="quarto-dashboard-link" href="https://www.ravelry.com/people/amcsw"><i class="bi bi-activity"></i></a></div></div>
+</nav>
+</header>
+<div class="page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill">  
+
+<div class="bslib-grid-item html-fill-item bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div id="zyyionoqxr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:hidden;width:auto;height:auto;" class="html-fill-item html-fill-container">
+<style>#zyyionoqxr table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#zyyionoqxr thead, #zyyionoqxr tbody, #zyyionoqxr tfoot, #zyyionoqxr tr, #zyyionoqxr td, #zyyionoqxr th {
+  border-style: none;
+}
+
+#zyyionoqxr p {
+  margin: 0;
+  padding: 0;
+}
+
+#zyyionoqxr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 90%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #99195F;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #99195F;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#zyyionoqxr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#zyyionoqxr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#zyyionoqxr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#zyyionoqxr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zyyionoqxr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #CB2A7B;
+}
+
+#zyyionoqxr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #CB2A7B;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #CB2A7B;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zyyionoqxr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#zyyionoqxr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#zyyionoqxr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#zyyionoqxr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#zyyionoqxr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #CB2A7B;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#zyyionoqxr .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#zyyionoqxr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #CB2A7B;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #CB2A7B;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#zyyionoqxr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #CB2A7B;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #CB2A7B;
+  vertical-align: middle;
+}
+
+#zyyionoqxr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#zyyionoqxr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#zyyionoqxr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: none;
+  border-top-width: 1px;
+  border-top-color: #FFC6E3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #FFC6E3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #FFC6E3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#zyyionoqxr .gt_stub {
+  color: #FFFFFF;
+  background-color: #CB2A7B;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #CB2A7B;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zyyionoqxr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#zyyionoqxr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#zyyionoqxr .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#zyyionoqxr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zyyionoqxr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #CB2A7B;
+}
+
+#zyyionoqxr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#zyyionoqxr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #CB2A7B;
+}
+
+#zyyionoqxr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFC6E3;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zyyionoqxr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #CB2A7B;
+}
+
+#zyyionoqxr .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #CB2A7B;
+}
+
+#zyyionoqxr .gt_striped {
+  background-color: #F4F4F4;
+}
+
+#zyyionoqxr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #CB2A7B;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #CB2A7B;
+}
+
+#zyyionoqxr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zyyionoqxr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zyyionoqxr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zyyionoqxr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zyyionoqxr .gt_left {
+  text-align: left;
+}
+
+#zyyionoqxr .gt_center {
+  text-align: center;
+}
+
+#zyyionoqxr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#zyyionoqxr .gt_font_normal {
+  font-weight: normal;
+}
+
+#zyyionoqxr .gt_font_bold {
+  font-weight: bold;
+}
+
+#zyyionoqxr .gt_font_italic {
+  font-style: italic;
+}
+
+#zyyionoqxr .gt_super {
+  font-size: 65%;
+}
+
+#zyyionoqxr .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#zyyionoqxr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#zyyionoqxr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#zyyionoqxr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#zyyionoqxr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#zyyionoqxr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#zyyionoqxr .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#zyyionoqxr .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#zyyionoqxr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="photos" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="name" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">pattern</th>
+<th id="designer.name" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Designer</th>
+<th id="yarn_weight_description" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Yarn Weight</th>
+<th id="gauge" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Gauge</th>
+<th id="yardage_description" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Yardage Range</th>
+<th id="favorites_count" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col"></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="photos"><img src="https://images4-g.ravelrycache.com/uploads/nichknit/887910077/IMG_7735_square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left" headers="name">Oxford Road Toque (<span style="white-space: pre;"><a href="ravelry.com/oxford-road-toque" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left" headers="designer.name">Shelby Nichols</td>
+<td class="gt_row gt_left" headers="yarn_weight_description">Worsted (9 wpi)</td>
+<td class="gt_row gt_right" headers="gauge">20 sts in 4 inches</td>
+<td class="gt_row gt_left" headers="yardage_description">150 - 210 yards</td>
+<td class="gt_row gt_right" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 4174
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 187</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="photos"><img src="https://images4-f.ravelrycache.com/uploads/UniversalYarn/1062435781/Glazed_Diamonds_02_hi_res_square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left gt_striped" headers="name">Glazed Diamonds (<span style="white-space: pre;"><a href="ravelry.com/glazed-diamonds" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left gt_striped" headers="designer.name">Afifa</td>
+<td class="gt_row gt_left gt_striped" headers="yarn_weight_description">DK (11 wpi)</td>
+<td class="gt_row gt_right gt_striped" headers="gauge">24 sts in 4 inches (Stranded Knitting)</td>
+<td class="gt_row gt_left gt_striped" headers="yardage_description">1804 - 1968 yards</td>
+<td class="gt_row gt_right gt_striped" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 469
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="photos"><img src="https://images4-g.ravelrycache.com/uploads/postcard-knits/1088892803/IMG_7218_square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left" headers="name">Town Square Sweater (<span style="white-space: pre;"><a href="ravelry.com/town-square-sweater" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left" headers="designer.name">Postcard Knits</td>
+<td class="gt_row gt_left" headers="yarn_weight_description">Worsted (9 wpi)</td>
+<td class="gt_row gt_right" headers="gauge">20 sts in 4 inches (2x2 ribbing)</td>
+<td class="gt_row gt_left" headers="yardage_description">1050 - 1900 yards</td>
+<td class="gt_row gt_right" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 1119
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 26</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="photos"><img src="https://images4-g.ravelrycache.com/uploads/vanessaewing/1090340916/Lozen_Sweater__8__square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left gt_striped" headers="name">Lozen Sweater (<span style="white-space: pre;"><a href="ravelry.com/lozen-sweater" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left gt_striped" headers="designer.name">Vanessa Ewing</td>
+<td class="gt_row gt_left gt_striped" headers="yarn_weight_description">DK (11 wpi)</td>
+<td class="gt_row gt_right gt_striped" headers="gauge">20 sts in 4 inches (in st st and diamond chart on MAIN BODY needle after blocking)</td>
+<td class="gt_row gt_left gt_striped" headers="yardage_description">949 - 1993 yards</td>
+<td class="gt_row gt_right gt_striped" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 322
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="photos"><img src="https://images4-g.ravelrycache.com/uploads/dreareneeknits/1090357262/5J6A7332_square.png" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left" headers="name">Jaunty (<span style="white-space: pre;"><a href="ravelry.com/jaunty-6" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left" headers="designer.name">Andrea Mowry</td>
+<td class="gt_row gt_left" headers="yarn_weight_description">Any gauge - designed for any gauge</td>
+<td class="gt_row gt_right" headers="gauge">18 sts in 4 inches (Half-Fishermen's Rib (post blocking))</td>
+<td class="gt_row gt_left" headers="yardage_description">450 - 990 yards</td>
+<td class="gt_row gt_right" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 4271
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 150</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="photos"><img src="https://images4-f.ravelrycache.com/uploads/ElenorMortensen/1090916154/IMG_20250923_145322__4__square.png" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left gt_striped" headers="name">Against the current Tee (<span style="white-space: pre;"><a href="ravelry.com/against-the-current-tee" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left gt_striped" headers="designer.name">Elenor Mortensen</td>
+<td class="gt_row gt_left gt_striped" headers="yarn_weight_description">Fingering (14 wpi)</td>
+<td class="gt_row gt_right gt_striped" headers="gauge">24 sts in 4 inches (in stockinette and colourwork)</td>
+<td class="gt_row gt_left gt_striped" headers="yardage_description">766 - 1465 yards</td>
+<td class="gt_row gt_right gt_striped" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 782
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 42</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="photos"><img src="https://images4-g.ravelrycache.com/uploads/leKnit-DK/1083813184/Rosie-sweater-11-le-knit-lene-holme-samsoee-samse-strikkeopskrift_square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left" headers="name">Rosie Sweater (<span style="white-space: pre;"><a href="ravelry.com/rosie-sweater-4" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left" headers="designer.name">LE KNIT by Lene Holme Samsøe</td>
+<td class="gt_row gt_left" headers="yarn_weight_description">DK (11 wpi)</td>
+<td class="gt_row gt_right" headers="gauge">21 sts in 4 inches (stockinette stitch)</td>
+<td class="gt_row gt_left" headers="yardage_description">1345 - 2018 yards</td>
+<td class="gt_row gt_right" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 21994
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 256</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="photos"><img src="https://images4-g.ravelrycache.com/uploads/theknitpurlgirlco/1091068980/IMG_2822_square.JPG" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left gt_striped" headers="name">Juno Sweater (DK &amp; Chunky) (<span style="white-space: pre;"><a href="ravelry.com/juno-sweater-dk--chunky" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left gt_striped" headers="designer.name">The Knit Purl Girl</td>
+<td class="gt_row gt_left gt_striped" headers="yarn_weight_description">Any gauge - designed for any gauge</td>
+<td class="gt_row gt_right gt_striped" headers="gauge">20 sts in 4 inches (Stockinette Stitch)</td>
+<td class="gt_row gt_left gt_striped" headers="yardage_description">820 - 3259 yards</td>
+<td class="gt_row gt_right gt_striped" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 759
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 59</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="photos"><img src="https://images4-g.ravelrycache.com/uploads/leKnit-DK/1090858655/Facet-9-le-knit-lene-holme-samsoee-samse-strikkeopskrift_square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left" headers="name">Facet Sweater (<span style="white-space: pre;"><a href="ravelry.com/facet-sweater" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left" headers="designer.name">LE KNIT by Lene Holme Samsøe</td>
+<td class="gt_row gt_left" headers="yarn_weight_description">DK (11 wpi)</td>
+<td class="gt_row gt_right" headers="gauge">22 sts in 4 inches (colorwork pattern)</td>
+<td class="gt_row gt_left" headers="yardage_description">1367 - 2018 yards</td>
+<td class="gt_row gt_right" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 3179
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="photos"><img src="https://images4-f.ravelrycache.com/uploads/flrln/873101300/Image_2__square.jpeg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left gt_striped" headers="name">Step by Step Sweater (<span style="white-space: pre;"><a href="ravelry.com/step-by-step-sweater" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left gt_striped" headers="designer.name">Florence Miller</td>
+<td class="gt_row gt_left gt_striped" headers="yarn_weight_description">Aran (8 wpi)</td>
+<td class="gt_row gt_right gt_striped" headers="gauge">16 sts in 4 inches</td>
+<td class="gt_row gt_left gt_striped" headers="yardage_description">738 - 1722 yards</td>
+<td class="gt_row gt_right gt_striped" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 59528
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 9118</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="photos"><img src="https://images4-f.ravelrycache.com/uploads/MidoriHirose/475388370/Blob_square" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left" headers="name">Ranunculus (<span style="white-space: pre;"><a href="ravelry.com/ranunculus-3" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left" headers="designer.name">Midori Hirose</td>
+<td class="gt_row gt_left" headers="yarn_weight_description">NA</td>
+<td class="gt_row gt_right" headers="gauge">14 sts in 4 inches (stockinette stitch after wet blocking)</td>
+<td class="gt_row gt_left" headers="yardage_description">405 - 1029 yards</td>
+<td class="gt_row gt_right" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 113884
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 31184</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="photos"><img src="https://images4-g.ravelrycache.com/uploads/mymaane/1090937367/IMG_0382_square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left gt_striped" headers="name">COLORFIELD VEST (<span style="white-space: pre;"><a href="ravelry.com/colorfield-vest" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left gt_striped" headers="designer.name">MAANE by Lisa Meissner</td>
+<td class="gt_row gt_left gt_striped" headers="yarn_weight_description">DK (11 wpi)</td>
+<td class="gt_row gt_right gt_striped" headers="gauge">22 sts in 4 inches (garter stitch with one row stripes)</td>
+<td class="gt_row gt_left gt_striped" headers="yardage_description">1203 - 2406 yards</td>
+<td class="gt_row gt_right gt_striped" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 1899
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 18</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="photos"><img src="https://images4-g.ravelrycache.com/uploads/lainemagazine/1013485354/240514_Laine_Hilltorp13624_pieni_web_square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left" headers="name">Loxia (<span style="white-space: pre;"><a href="ravelry.com/loxia" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left" headers="designer.name">Lotta H Löthgren</td>
+<td class="gt_row gt_left" headers="yarn_weight_description">DK (11 wpi)</td>
+<td class="gt_row gt_right" headers="gauge">22 sts in 4 inches (Stockinette Stitch)</td>
+<td class="gt_row gt_left" headers="yardage_description">907 - 1827 yards</td>
+<td class="gt_row gt_right" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 1092
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 30</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="photos"><img src="https://images4-f.ravelrycache.com/uploads/SarahJane1974/1090784212/Photoroom_20250902_164915_square.jpeg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left gt_striped" headers="name">Spirit of a Nation (<span style="white-space: pre;"><a href="ravelry.com/spirit-of-a-nation" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left gt_striped" headers="designer.name">Sarah Athey</td>
+<td class="gt_row gt_left gt_striped" headers="yarn_weight_description">DK (11 wpi)</td>
+<td class="gt_row gt_right gt_striped" headers="gauge">16 sts in 4 inches</td>
+<td class="gt_row gt_left gt_striped" headers="yardage_description">2843 - 3281 yards</td>
+<td class="gt_row gt_right gt_striped" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 56
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 4</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="photos"><img src="https://images4-g.ravelrycache.com/uploads/westknits/1086812135/775315804-mkal-2025-no-text-square__1__square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left" headers="name">Mystery MusiKAL (<span style="white-space: pre;"><a href="ravelry.com/mystery-musikal" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left" headers="designer.name">Stephen West</td>
+<td class="gt_row gt_left" headers="yarn_weight_description">Fingering (14 wpi)</td>
+<td class="gt_row gt_right" headers="gauge">24 sts in 4 inches (Garter stitch before blocking)</td>
+<td class="gt_row gt_left" headers="yardage_description">1748 yards</td>
+<td class="gt_row gt_right" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 3442
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 1758</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="photos"><img src="https://images4-f.ravelrycache.com/uploads/zachamanda/1090949374/IMG_2552_square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left gt_striped" headers="name">Sarah Scarf (<span style="white-space: pre;"><a href="ravelry.com/sarah-scarf-3" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left gt_striped" headers="designer.name">Amanda Morse</td>
+<td class="gt_row gt_left gt_striped" headers="yarn_weight_description">DK (11 wpi)</td>
+<td class="gt_row gt_right gt_striped" headers="gauge">18 sts in 4 inches (charted stitch pattern)</td>
+<td class="gt_row gt_left gt_striped" headers="yardage_description">500 - 600 yards</td>
+<td class="gt_row gt_right gt_striped" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 180
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="photos"><img src="https://images4-g.ravelrycache.com/uploads/tejereningles/1090949299/Llosa-front_square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left" headers="name">Llosa (<span style="white-space: pre;"><a href="ravelry.com/llosa" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left" headers="designer.name">Belén Fernández</td>
+<td class="gt_row gt_left" headers="yarn_weight_description">Fingering (14 wpi)</td>
+<td class="gt_row gt_right" headers="gauge">14 sts in 4 inches (Garter stitch / Punto bobo)</td>
+<td class="gt_row gt_left" headers="yardage_description">875 - 930 yards</td>
+<td class="gt_row gt_right" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 692
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 31</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="photos"><img src="https://images4-f.ravelrycache.com/uploads/PetiteKnitDK/1057947486/sophie_721_ito_cardiff_square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left gt_striped" headers="name">Sophie Scarf (<span style="white-space: pre;"><a href="ravelry.com/sophie-scarf-2" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left gt_striped" headers="designer.name">PetiteKnit</td>
+<td class="gt_row gt_left gt_striped" headers="yarn_weight_description">DK (11 wpi)</td>
+<td class="gt_row gt_right gt_striped" headers="gauge">22 sts in 4 inches (in garter stitch)</td>
+<td class="gt_row gt_left gt_striped" headers="yardage_description">101 - 140 yards</td>
+<td class="gt_row gt_right gt_striped" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 64535
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 34135</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="photos"><img src="https://images4-f.ravelrycache.com/uploads/PetiteKnitDK/1039436237/sophie_hood_bla_grn_vg2_square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left" headers="name">Sophie Hood (<span style="white-space: pre;"><a href="ravelry.com/sophie-hood" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left" headers="designer.name">PetiteKnit</td>
+<td class="gt_row gt_left" headers="yarn_weight_description">Aran (8 wpi)</td>
+<td class="gt_row gt_right" headers="gauge">17 sts in 4 inches (in garter stitch pattern )</td>
+<td class="gt_row gt_left" headers="yardage_description">437 - 722 yards</td>
+<td class="gt_row gt_right" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 33697
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 4386</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="photos"><img src="https://images4-f.ravelrycache.com/uploads/PetiteKnitDK/1010879543/cloud_sweater_og_coast_sommer_square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left gt_striped" headers="name">Cloud Sweater (<span style="white-space: pre;"><a href="ravelry.com/cloud-sweater-8" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left gt_striped" headers="designer.name">PetiteKnit</td>
+<td class="gt_row gt_left gt_striped" headers="yarn_weight_description">Bulky (7 wpi)</td>
+<td class="gt_row gt_right gt_striped" headers="gauge">17 sts in 4 inches (in stockinette)</td>
+<td class="gt_row gt_left gt_striped" headers="yardage_description">957 - 1640 yards</td>
+<td class="gt_row gt_right gt_striped" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 45797
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 3303</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="photos"><img src="https://images4-g.ravelrycache.com/uploads/goccella/1016295043/IMG_5702_square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left" headers="name">Iris Wave Socks (<span style="white-space: pre;"><a href="ravelry.com/iris-wave-socks" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left" headers="designer.name">gokceh</td>
+<td class="gt_row gt_left" headers="yarn_weight_description">Fingering (14 wpi)</td>
+<td class="gt_row gt_right" headers="gauge">32 sts in 4 inches (stockinette)</td>
+<td class="gt_row gt_left" headers="yardage_description">306 - 328 yards</td>
+<td class="gt_row gt_right" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 144
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="photos"><img src="https://images4-g.ravelrycache.com/uploads/1000hats/1090822270/coastal-sage-shawl-1_square.jpeg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left gt_striped" headers="name">The Coastal Sage Shawl (<span style="white-space: pre;"><a href="ravelry.com/the-coastal-sage-shawl" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left gt_striped" headers="designer.name">Apricot Yarn &amp; Supply</td>
+<td class="gt_row gt_left gt_striped" headers="yarn_weight_description">Fingering (14 wpi)</td>
+<td class="gt_row gt_right gt_striped" headers="gauge">22 sts in 4 inches (garter)</td>
+<td class="gt_row gt_left gt_striped" headers="yardage_description">700 - 800 yards</td>
+<td class="gt_row gt_right gt_striped" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 327
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="photos"><img src="https://images4-f.ravelrycache.com/uploads/PetiteKnitDK/998160758/olga_sweater14_square.jpg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left" headers="name">Olga Sweater (<span style="white-space: pre;"><a href="ravelry.com/olga-sweater" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left" headers="designer.name">PetiteKnit</td>
+<td class="gt_row gt_left" headers="yarn_weight_description">DK (11 wpi)</td>
+<td class="gt_row gt_right" headers="gauge">20 sts in 4 inches (in stockinette on larger needles)</td>
+<td class="gt_row gt_left" headers="yardage_description">995 - 1772 yards</td>
+<td class="gt_row gt_right" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 25895
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 2689</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="photos"><img src="https://images4-g.ravelrycache.com/uploads/cocoamourknitwear/1090771001/IMG_3860_square.jpeg" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left gt_striped" headers="name">Peatlands Sweater (<span style="white-space: pre;"><a href="ravelry.com/peatlands-sweater" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left gt_striped" headers="designer.name">Cheryl Mokhtari</td>
+<td class="gt_row gt_left gt_striped" headers="yarn_weight_description">Sport (12 wpi)</td>
+<td class="gt_row gt_right gt_striped" headers="gauge">19 sts in 4 inches (in Stockinette Stitch on 4.5mm needles)</td>
+<td class="gt_row gt_left gt_striped" headers="yardage_description">1263 - 1865 yards</td>
+<td class="gt_row gt_right gt_striped" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 2004
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 4</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="photos"><img src="https://images4-f.ravelrycache.com/uploads/famkeeva/1091270423/DSC00842_square.JPG" class="img-fluid" style="height:100px;"></td>
+<td class="gt_row gt_left" headers="name">Mabel Meadow Cardigan (<span style="white-space: pre;"><a href="ravelry.com/mabel-meadow-cardigan" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position: under;display: inline-block;">Ravelry</a></span>)</td>
+<td class="gt_row gt_left" headers="designer.name">Famke | Mipi the Label</td>
+<td class="gt_row gt_left" headers="yarn_weight_description">Aran (8 wpi)</td>
+<td class="gt_row gt_right" headers="gauge">19 sts in 4 inches (lace)</td>
+<td class="gt_row gt_left" headers="yardage_description">815 - 1728 yards</td>
+<td class="gt_row gt_right" headers="favorites_count"><span style="white-space:nowrap;">
+<svg aria-label="Heart" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;stroke:red;position:relative;">
+<title>
+Heart
+</title>
+<path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"></path>
+</svg>
+</span> 231
+<span style="white-space:nowrap;">
+<svg aria-label="Mitten" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;stroke:blue;position:relative;">
+<title>
+Mitten
+</title>
+<path d="M352 384H64L5.4 178.9C1.8 166.4 0 153.4 0 140.3C0 62.8 62.8 0 140.3 0h3.4c66 0 123.5 44.9 139.5 108.9l31.4 125.8 17.6-20.1C344.8 200.2 362.9 192 382 192h2.8c34.9 0 63.3 28.3 63.3 63.3c0 15.9-6 31.2-16.8 42.9L352 384zM32 448c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V448z"></path>
+</svg>
+</span> 16</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
+
+</div>
+</div>
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /container fluid -->
+
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
+
+
+
+</body></html>
