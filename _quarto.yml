@@ -1,0 +1,16 @@
+title: "Ravelry Table"
+author: "Alex McSween"
+format: 
+  dashboard:
+    logo: images/logo.png
+    nav-buttons: 
+     - icon: github
+       href: https://github.com/alexmcsw/ravelry-table
+     - icon: activity
+       href: https://www.ravelry.com/people/amcsw
+    theme: 
+        light: minty
+project:
+  output-dir: docs
+execute:
+  freeze: auto
