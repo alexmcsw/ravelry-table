@@ -27,7 +27,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt install libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev libnode-dev libx11-dev pandoc
+          sudo apt install libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev libnode-dev libx11-dev pandoc libharfbuzz-dev libfribidi-dev
 
       - name: Set PKG_CONFIG_PATH
         run: |
