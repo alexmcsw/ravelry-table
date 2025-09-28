@@ -1,8 +1,6 @@
 library(ravelRy)
-library(dplyr)
+library(tidyverse)
 library(gt)
-library(purrr)
-library(tidyr)
 
 hot_right_now <- search_patterns(page_size = 25)
 
