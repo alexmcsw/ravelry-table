@@ -4,7 +4,7 @@ on:
     branches: main
   schedule:
     - cron: '0 13 * * *'
-
+    
 name: Quarto Publish
 
 jobs:
@@ -24,15 +24,6 @@ jobs:
         with:
           r-version: '4.2.0'
 
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt install libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev libnode-dev libx11-dev pandoc libharfbuzz-dev libfribidi-dev
-
-      - name: Set PKG_CONFIG_PATH
-        run: |
-          echo "PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/local/lib/pkgconfig:/usr/share/pkgconfig" >> $GITHUB_ENV
-
       - name: Install R Dependencies
         uses: r-lib/actions/setup-renv@v2
         with:
@@ -44,3 +35,5 @@ jobs:
           target: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RAVELRY_USERNAME: ${{ secrets.USERNAME_RAVELRY }}
+          RAVELRY_PASSWORD: ${{ secrets.PWD_RAVELRY }}
