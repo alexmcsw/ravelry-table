@@ -60,9 +60,9 @@ pattern_df |>
     permalink,
     designer.name,
     craft,
-    yarn_weight_description,
     gauge,
     gauge_divisor,
+    yarn_weight_description,
     yardage_description,
     projects_count,
     favorites_count
@@ -104,12 +104,20 @@ gt() |>
     pattern = "<<{1} sts in {2} inches>>"
   ) |>
   cols_width(
-    photos ~ px(150),
-    gauge ~ px(50)
+    photos ~ px(200),
+    name ~ px(100),
+    designer.name ~ px(80),
+    craft ~ px(50),
+    gauge ~ px(50),
+    yarn_weight_description ~ px(50)
   ) |>
     cols_align(
     align = "center",
     columns = c("photos", "favorites_count")
+  ) |>
+  cols_align(
+    align = "left",
+    columns = c("gauge", "gauge_divisor")
   ) |>
   cols_label(
     photos = "",
@@ -124,7 +132,7 @@ gt() |>
   tab_options(
     table.font.color = "#014820",
     table.background.color = "#CDD4DC",
-    table.font.size = px(14),
+    table.font.size = px(16),
     table.border.top.color = "transparent",
     table.border.bottom.color = "transparent",
     table_body.hlines.color = "transparent",
@@ -150,12 +158,20 @@ gt() |>
     table tr:hover {
       background-color: #8FA33F;
     }
+
+    .cell-output-display {
+      overflow-x: unset !important;
+    }
     
-    .gt_col_heading {
-      position: sticky;
-      top: 0;
-      background-color: white;
-      z-index: 1;
+    div#custom {
+      overflow-x: unset !important;
+      overflow-y: unset !important;
+    }
+    
+    #custom .gt_col_heading {
+      position: sticky !important;
+      top: -5px !important;
+      z-index: 10 !important;
     }
     "
   )
