@@ -1,0 +1,24 @@
+color:
+  palette:
+    pink: "#BD338F"
+    orange: "#EB8252"
+    beige: "#F5DC83"
+    light-gray: "#CDD4DC"
+    gray: "#8098A2"
+    light-green: "#8FA33F"
+    green: "#5F7929" 
+    dark-green: "#014820"
+  background: light-gray
+  foreground: pink
+  primary: pink
+  secondary: light-green
+  light: orange
+  dark: light-gray
+
+typography:
+  headings:
+    color: dark
+
+
+
+  

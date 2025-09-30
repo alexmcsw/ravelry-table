@@ -1,15 +1,15 @@
-title: "Ravelry Table"
-author: "Alex McSween"
+title: "Ravelry: Hot Right Now"
+author: "by Alex McSween"
 format: 
   dashboard:
-    logo: images/logo.png
     nav-buttons: 
      - icon: github
        href: https://github.com/alexmcsw/ravelry-table
      - icon: activity
        href: https://www.ravelry.com/people/amcsw
-    theme: 
-        light: minty
+    theme:
+      - solarized
+      - brand
 project:
   output-dir: docs
 execute:
