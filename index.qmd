@@ -1,17 +1,3 @@
---- 
-title: "Ravelry Table"
-author: "Alex McSween"
-format: 
-  dashboard:
-    logo: images/logo.png
-    nav-buttons: 
-     - icon: github
-       href: https://github.com/alexmcsw/ravelry-table
-     - icon: activity
-       href: https://www.ravelry.com/people/amcsw
-    theme: 
-        light: minty
----
 
 ```{r}
 library(ravelRy)
@@ -21,11 +7,11 @@ library(purrr)
 library(tidyr)
 
 
-hot_right_now <- search_patterns(page_size = 25)
+hot_right_now <- search_patterns(page_size = 20)
 
 # Step 1: Fetch top 25 patterns
-top_patterns <- search_patterns(page_size = 25) |>
-  mutate(rank = 1:25)
+top_patterns <- search_patterns(page_size = 20) |>
+  mutate(rank = 1:20)
 
 # Step 2: Get detailed info for each pattern
 pattern_details <- get_patterns(top_patterns$id)
@@ -45,10 +31,13 @@ pattern_df <- pattern_details |>
     gauge_pattern,
     yarn_weight_description,
     yardage_description,
-    photos
+    photos,
+    craft
   ) |>
-  mutate(photos = map(photos, pluck, "square_url", 1)) |>
+  mutate(photos = map(photos, pluck, "small_url", 1)) |>
   unnest(photos) |>
+  mutate(craft = map(craft, pluck, "name", 1)) |>
+  unnest(craft) |>
   merge(top_patterns |> select(id, designer.name, rank), by = "id") |>
   arrange(rank) |>
   mutate(
@@ -60,68 +49,115 @@ pattern_df <- pattern_details |>
     across(where(is.character), ~ na_if(., ""))
   )
 
+```
 
+
+```{r}
 pattern_df |>
   select(
     photos,
     name,
     permalink,
     designer.name,
+    craft,
     yarn_weight_description,
     gauge,
     gauge_divisor,
-    gauge_pattern,
     yardage_description,
     projects_count,
     favorites_count
   ) |>
-  gt() |>
-  text_transform(
+gt() |>
+    text_transform(
     locations = cells_body(columns = photos),
     fn = function(x) {
-      web_image(
-        url = x,
-        height = 100
-      )
+      lapply(x, function(url) {
+        html(paste0(
+          "<div style='width:150px; height:150px; overflow:hidden; display:inline-block;'>",
+          "<img src='", url, "' style='width:300px; height:150px; object-fit:cover;'>",
+          "</div>"
+        ))
+      })
     }
   ) |>
   fmt_url(
     columns = permalink,
-    label = "Ravelry"
+    label = fontawesome::fa(
+      name = "link",
+      height = "0.7em",
+      vertical_align = "0em"
+     ),
   ) |>
   cols_add(heart = "Heart", project = "mitten") |>
   fmt_icon(heart, fill_color = "red", stroke_color = "red") |>
   fmt_icon(project, fill_color = "blue", stroke_color = "blue") |>
   cols_merge(
     columns = c(name, permalink),
-    pattern = "{1} ({2})"
+    pattern = "{1} {2}"
   ) |>
   cols_merge(
     columns = c(favorites_count, heart, projects_count, project),
     pattern = "{2} {1} {4} {3}"
   ) |>
   cols_merge(
-    columns = c(gauge, gauge_divisor, gauge_pattern),
-    pattern = "{1} sts in {2} inches <<({3})>>"
-  ) |>
-  cols_label(
-    photos = "",
-    name = "pattern",
-    designer.name = "Designer",
-    yarn_weight_description = "Yarn Weight",
-    gauge = "Gauge",
-    yardage_description = "Yardage Range",
-    favorites_count = ""
+    columns = c(gauge, gauge_divisor),
+    pattern = "<<{1} sts in {2} inches>>"
   ) |>
   cols_width(
     photos ~ px(150),
-    name ~ px(150),
-    everything() ~ px(100)
+    gauge ~ px(50)
   ) |>
-  opt_stylize(color = "pink") |>
+    cols_align(
+    align = "center",
+    columns = c("photos", "favorites_count")
+  ) |>
+  cols_label(
+    photos = "",
+    name = md("**Pattern**"),
+    designer.name = md("**Designer**"),
+    yarn_weight_description = md("**Weight**"),
+    gauge = md("**Gauge**"),
+    yardage_description = md("**Yardage**"),
+    favorites_count = "",
+    craft = md("**Craft**")
+  ) |>
   tab_options(
-    table.width = pct(90),
-    container.overflow.y = FALSE
+    table.font.color = "#014820",
+    table.background.color = "#CDD4DC",
+    table.font.size = px(14),
+    table.border.top.color = "transparent",
+    table.border.bottom.color = "transparent",
+    table_body.hlines.color = "transparent",
+    table_body.border.bottom.color = "transparent",
+    column_labels.border.bottom.color = "transparent",
+    column_labels.border.top.color = "transparent",
+    footnotes.background.color = "#CDD4DC",
+    source_notes.background.color = "#CDD4DC"
+  ) |> 
+  tab_style_body(
+    style = cell_borders(
+      sides = c("top", "bottom"),
+      weight = px(0) # Remove row borders
+    ),
+    fn = function(x) { is.numeric(x) | is.character(x) }
+  ) |> 
+  opt_css(
+    css = "
+    table tr:nth-child(odd) {
+      background-color: #CDD4DC;
+    }
+      
+    table tr:hover {
+      background-color: #8FA33F;
+    }
+    
+    .gt_col_heading {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      z-index: 1;
+    }
+    "
   )
 
 

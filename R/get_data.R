@@ -26,7 +26,8 @@ pattern_df <- pattern_details |>
     gauge_pattern,
     yarn_weight_description,
     yardage_description,
-    photos
+    photos,
+    craft
   ) |>
   mutate(photos = map(photos, pluck, "square_url", 1)) |>
   unnest(photos) |>
@@ -38,7 +39,8 @@ pattern_df <- pattern_details |>
       as.numeric
     ),
     permalink = paste0("ravelry.com/", permalink),
-    across(where(is.character), ~ na_if(., ""))
+    across(where(is.character), ~ na_if(., "")),
+    craft = stringr::str_extract(craft, pattern = "Knitting|Crochet")
   )
 
 
