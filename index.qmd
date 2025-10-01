@@ -130,8 +130,7 @@ gt() |>
     craft = md("**Craft**")
   ) |>
   tab_options(
-    table.font.color = "#014820",
-    table.background.color = "#CDD4DC",
+    table.background.color = "#1E1F26",
     table.font.size = px(16),
     table.border.top.color = "transparent",
     table.border.bottom.color = "transparent",
@@ -152,11 +151,11 @@ gt() |>
   opt_css(
     css = "
     table tr:nth-child(odd) {
-      background-color: #CDD4DC;
+      background-color: #2C2F3A;
     }
-      
+
     table tr:hover {
-      background-color: #8FA33F;
+      background-color: #3A4A6B;
     }
 
     .cell-output-display {

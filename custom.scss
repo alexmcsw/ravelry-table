@@ -1,23 +1,6 @@
 /*-- scss:defaults --*/
 
-$theme-spotify-green: #1DB954;
-$theme-lighter-green: #1ed760;
-$theme-dark-purple: #7D3C98;
-$theme-light-purple: #e3cbf2;
-$theme-darkest-gray: #191414;
-$theme-medium-gray: #282828;
-$theme-light-gray: #f4f4f4;
 $theme-text-color: white;
-
-@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@700&family=Montserrat&display=swap');
-
-$font-family-sans-serif: 'Montserrat', sans-serif;
-$footer-bg: $theme-spotify-green;
-$font-size-root: 12px;
-$link-color: $theme-light-purple;
-$sidebar-bg: $theme-light-gray;
-$sidebar-fg: $theme-darkest-gray;
-$code-block-bg: $theme-medium-gray;
 
 /*-- scss:rules --*/
 
@@ -31,27 +14,6 @@ td {
   mid-width: 200px;
 }
 
-/* Change the background colours to a Spotify-like theme */
-body {
-  background-color: $theme-darkest-gray !important;
-}
-.card {
-  --bs-card-border-width: 0px; 
-  --bs-card-bg: $theme-darkest-gray !important;
-}
-.card-body {
-  padding: 0px;
-  color: $theme-text-color !important;
-  background-color: $theme-darkest-gray;
-}
-.navbar {
-  background-color: $theme-medium-gray;
-  color: $theme-text-color;
-}
-:root {
-  --bs-body-bg: $theme-darkest-gray !important;
-  --bs-card-bg: $theme-darkest-gray !important;
-}
 
 /* Scrollbar theming */
 ::-webkit-scrollbar {
@@ -59,34 +21,21 @@ body {
     height: 12px; /* Horizontal scrollbar height */
 }
 ::-webkit-scrollbar-track { /* Track (part the thumb slides within) */
-    background: $theme-darkest-gray; 
+    background: $brand-light-blue; 
     border-radius: 10px; /* Rounded corners on the track */
 }
 ::-webkit-scrollbar-thumb { /* Thumb (draggable part of the scrollbar) */
-    background-color: $theme-spotify-green;
+    background-color: $brand-dark-blue;
     border-radius: 10px; /* Rounded corners on the thumb */
-    border: 3px solid $theme-darkest-gray; /* Makes the thumb slightly smaller than the track */
+    border: 3px solid $brand-light-blue; /* Makes the thumb slightly smaller than the track */
 }
 ::-webkit-scrollbar-thumb:hover { /* Thumb hover effects */
-    background-color: $theme-lighter-green;
+    background-color: $brand-grey-blue;
 }
 ::-webkit-scrollbar-corner { /* Bottom corner of the scrollbar */
-    background: $theme-darkest-gray; /* Match the track background color */
+    background: $brand-dark-blue; /* Match the track background color */
 }
-select { /* Dropdown styling */ 
-    background-color: $theme-darkest-gray !important;
-    padding: 8px;
-    border: 1px solid $theme-text-color !important;
-    border-radius: 4px;
-    width: 200px;
-}
-select option { /* Styling of the items in the dropdown list when dropdown button is clicked */
-    background-color: $theme-darkest-gray !important; /* Light grey background for options */
-    color: $theme-text-color !important; /* Text color for options */
-}
-select option:hover { /* Styling of the currently highlighted item in the dropdown menu */ 
-  background-color: $theme-spotify-green !important;
-}
+
 
 /* Make superscripts in gt table not italic */
 .gt_footnote_marks sup {
@@ -120,44 +69,4 @@ a {
 }
 div.html-fill-item.html-fill-container .custom-iframe {
   justify-content: center; /* Center the web player only, not the gt table */
-}
-
-/* Make all headings and paragraph text white */ 
-h1, h2, h3, h4, h5, h6, p {
-  color: $theme-text-color;
-}
-
-/* Make the text in the sidebar (of the Quarto website, not the dashboard), dark gray */ 
-.sidebar-title {
-  color: $theme-darkest-gray;
-}
-
-/* Text colour of currently selected page in sidebar */
-div.sidebar-item-container .active {
-  color: $theme-dark-purple;
-}
-
-/* Text colour of noncurrently selected sidebar list items */
-div.sidebar-item-container {
-  color: $theme-darkest-gray;
-}
-
-/* Text colour of currently hovered on sidebar list item */ 
-div.sidebar-item-container:hover {
-  color: $theme-dark-purple;
-}
-
-/* Colour of "Next page" text in bottom right of each Quarto HTML webpage */ 
-.nav-page a {
-  color: $link-color;
-}
-
-/* Colour of "AUTHOR" text */ 
-#title-block-header.quarto-title-block.default .quarto-title-meta-heading {
-  color: $link-color;
-}
-
-/* Colour of non-hovered list items in table of contents */
-.sidebar .toc-actions ul li a {
-  color: $theme-text-color !important;
 }

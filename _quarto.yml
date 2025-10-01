@@ -10,7 +10,7 @@ format:
     theme:
       - solarized
       - brand
-      - custom.scss
+      # - custom.scss
 project:
   output-dir: docs
 execute:

@@ -1,24 +1,36 @@
+# _brand.yml
+
 color:
   palette:
-    pink: "#BD338F"
-    orange: "#EB8252"
-    beige: "#F5DC83"
-    light-gray: "#CDD4DC"
-    gray: "#8098A2"
-    light-green: "#8FA33F"
-    green: "#5F7929" 
-    dark-green: "#014820"
-  background: light-gray
-  foreground: pink
-  primary: pink
-  secondary: light-green
-  light: orange
-  dark: light-gray
+    yarn-rose-dark: "#B86A73"       # muted rose
+    midnight: "#172869"         # deep navy background
+    thistle-dark: "#6E6A7F"     # muted purple-grey accent
+    slate: "#2C2F3A"            # dark slate surface
+    mist: "#A8A8B3"             # soft grey text
+    yarn-shadow: "#1E1F26"      # near-black for depth
+    stitch-blue: "#3A4A6B"      # cool blue-grey for links
+  primary: yarn-rose-dark
+  secondary: stitch-blue
+  success: mist
+  info: slate
+  warning: yarn-shadow
+  danger: midnight
+  background: slate
+  foreground: mist
 
 typography:
-  headings:
-    color: dark
-
-
-
-  
+  fonts:
+    - family: Quicksand
+      source: google
+    - family: Segoe UI
+      source: google
+  base: Quicksand
+  headings: Segoe UI
+  link:
+    decoration: underline
+  monospace: Segoe UI
+  monospace-inline:
+    color: mist
+    background-color: primary # or use a named color from `color`
+  monospace-block: 
+    background-color: mist
