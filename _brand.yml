@@ -2,14 +2,14 @@
 
 color:
   palette:
-    yarn-rose-dark: "#B86A73"       # muted rose
+    peach: "#f2938a"       # muted rose
     midnight: "#172869"         # deep navy background
     thistle-dark: "#6E6A7F"     # muted purple-grey accent
     slate: "#2C2F3A"            # dark slate surface
     mist: "#A8A8B3"             # soft grey text
     yarn-shadow: "#1E1F26"      # near-black for depth
-    stitch-blue: "#3A4A6B"      # cool blue-grey for links
-  primary: yarn-rose-dark
+    stitch-blue: "#a9bcf9"      # cool blue-grey for links
+  primary: peach
   secondary: stitch-blue
   success: mist
   info: slate
@@ -28,6 +28,7 @@ typography:
   headings: Segoe UI
   link:
     decoration: underline
+    color: stitch-blue
   monospace: Segoe UI
   monospace-inline:
     color: mist

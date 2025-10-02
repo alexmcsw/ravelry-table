@@ -30,7 +30,6 @@ pattern_df <- pattern_details |>
     gauge_divisor,
     gauge_pattern,
     yarn_weight_description,
-    yardage_description,
     photos,
     craft
   ) |>
@@ -45,7 +44,7 @@ pattern_df <- pattern_details |>
       c(id, favorites_count, projects_count, gauge, gauge_divisor),
       as.numeric
     ),
-    permalink = paste0("ravelry.com/", permalink),
+    permalink = paste0("ravelry.com/patterns/library/", permalink),
     across(where(is.character), ~ na_if(., ""))
   )
 
@@ -53,6 +52,7 @@ pattern_df <- pattern_details |>
 
 
 ```{r}
+
 pattern_df |>
   select(
     photos,
@@ -63,11 +63,10 @@ pattern_df |>
     gauge,
     gauge_divisor,
     yarn_weight_description,
-    yardage_description,
     projects_count,
     favorites_count
   ) |>
-gt() |>
+  gt() |>
     text_transform(
     locations = cells_body(columns = photos),
     fn = function(x) {
@@ -80,28 +79,49 @@ gt() |>
       })
     }
   ) |>
-  fmt_url(
-    columns = permalink,
-    label = fontawesome::fa(
-      name = "link",
-      height = "0.7em",
-      vertical_align = "0em"
-     ),
+  cols_merge(
+    columns = c(name, permalink),
+    pattern = "<a href='{2}' target='_blank'>{1}</a>"
   ) |>
-  cols_add(heart = "Heart", project = "mitten") |>
-  fmt_icon(heart, fill_color = "red", stroke_color = "red") |>
-  fmt_icon(project, fill_color = "blue", stroke_color = "blue") |>
+  fmt_markdown(
+    columns = name
+  ) |>
+  cols_add(
+    favourites = "https://style-cdn.ravelrycache.com/images/assets/icons-dark/favorites.svg?v=34",
+    project = "https://style-cdn.ravelrycache.com/images/assets/icons-dark/needles.svg?v=34") |>
+  text_transform(
+    locations = cells_body(columns = favourites),
+    fn = function(x) {
+      web_image(
+        url = x,
+        height = as.numeric(25)
+      )
+    }
+  ) |>
+  text_transform(
+    locations = cells_body(columns = project),
+    fn = function(x) {
+      web_image(
+        url = x,
+        height = as.numeric(25)
+      )
+    }
+  ) |>
   cols_merge(
     columns = c(name, permalink),
     pattern = "{1} {2}"
   ) |>
   cols_merge(
-    columns = c(favorites_count, heart, projects_count, project),
-    pattern = "{2} {1} {4} {3}"
+    columns = c(favourites, favorites_count),
+    pattern = "{1} {2}"
+  ) |>
+  cols_merge(
+    columns = c(project, projects_count),
+    pattern = "{1} {2}"
   ) |>
   cols_merge(
     columns = c(gauge, gauge_divisor),
-    pattern = "<<{1} sts in {2} inches>>"
+    pattern = "<<{1} sts / {2} in>>"
   ) |>
   cols_width(
     photos ~ px(200),
@@ -125,8 +145,8 @@ gt() |>
     designer.name = md("**Designer**"),
     yarn_weight_description = md("**Weight**"),
     gauge = md("**Gauge**"),
-    yardage_description = md("**Yardage**"),
-    favorites_count = "",
+    favourites = "",
+    project = "",
     craft = md("**Craft**")
   ) |>
   tab_options(
