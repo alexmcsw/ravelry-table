@@ -27,7 +27,7 @@ td {
 ::-webkit-scrollbar-thumb { /* Thumb (draggable part of the scrollbar) */
     background-color: $brand-thistle-dark;
     border-radius: 10px; /* Rounded corners on the thumb */
-    border: 3px solid $brand-midnight; /* Makes the thumb slightly smaller than the track */
+    border: 3px solid $brand-slate; /* Makes the thumb slightly smaller than the track */
 }
 ::-webkit-scrollbar-thumb:hover { /* Thumb hover effects */
     background-color: $brand-midnight;
