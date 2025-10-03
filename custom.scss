@@ -21,19 +21,19 @@ td {
     height: 12px; /* Horizontal scrollbar height */
 }
 ::-webkit-scrollbar-track { /* Track (part the thumb slides within) */
-    background: $brand-light-blue; 
+    background: $brand-slate; 
     border-radius: 10px; /* Rounded corners on the track */
 }
 ::-webkit-scrollbar-thumb { /* Thumb (draggable part of the scrollbar) */
-    background-color: $brand-dark-blue;
+    background-color: $brand-thistle-dark;
     border-radius: 10px; /* Rounded corners on the thumb */
-    border: 3px solid $brand-light-blue; /* Makes the thumb slightly smaller than the track */
+    border: 3px solid $brand-midnight; /* Makes the thumb slightly smaller than the track */
 }
 ::-webkit-scrollbar-thumb:hover { /* Thumb hover effects */
-    background-color: $brand-grey-blue;
+    background-color: $brand-midnight;
 }
 ::-webkit-scrollbar-corner { /* Bottom corner of the scrollbar */
-    background: $brand-dark-blue; /* Match the track background color */
+    background: $brand-slate; /* Match the track background color */
 }
 
 

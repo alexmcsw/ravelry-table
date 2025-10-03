@@ -72,7 +72,7 @@ pattern_df |>
     fn = function(x) {
       lapply(x, function(url) {
         html(paste0(
-          "<div style='width:150px; height:150px; overflow:hidden; display:inline-block;'>",
+          "<div style='width:150px; height:150px; overflow:hidden; display:inline-block; border:2px solid white;'>",
           "<img src='", url, "' style='width:300px; height:150px; object-fit:cover;'>",
           "</div>"
         ))
@@ -87,38 +87,35 @@ pattern_df |>
     columns = name
   ) |>
   cols_add(
-    favourites = "https://style-cdn.ravelrycache.com/images/assets/icons-dark/favorites.svg?v=34",
-    project = "https://style-cdn.ravelrycache.com/images/assets/icons-dark/needles.svg?v=34") |>
+    favourites = "./static/favourites.svg",
+    project = "./static/needles.svg") |>
   text_transform(
     locations = cells_body(columns = favourites),
     fn = function(x) {
-      web_image(
-        url = x,
-        height = as.numeric(25)
-      )
+      mapply(function(img, val) {
+        html(paste0(
+          "<div style='display:flex; align-items:center; gap:10px;'>",
+          as.character(local_image(img, height = 40)),
+          "<span>", val, "</span>",
+          "</div>"
+        ))
+      }, x, pattern_df$favorites_count, SIMPLIFY = FALSE)
     }
   ) |>
   text_transform(
     locations = cells_body(columns = project),
     fn = function(x) {
-      web_image(
-        url = x,
-        height = as.numeric(25)
-      )
+      mapply(function(img, val) {
+        html(paste0(
+          "<div style='display:flex; align-items:center; gap:10px;'>",
+          as.character(local_image(img, height = 40)),
+          "<span>", val, "</span>",
+          "</div>"
+        ))
+      }, x, pattern_df$projects_count, SIMPLIFY = FALSE)
     }
   ) |>
-  cols_merge(
-    columns = c(name, permalink),
-    pattern = "{1} {2}"
-  ) |>
-  cols_merge(
-    columns = c(favourites, favorites_count),
-    pattern = "{1} {2}"
-  ) |>
-  cols_merge(
-    columns = c(project, projects_count),
-    pattern = "{1} {2}"
-  ) |>
+  cols_hide(columns = c(projects_count, favorites_count))|>
   cols_merge(
     columns = c(gauge, gauge_divisor),
     pattern = "<<{1} sts / {2} in>>"
@@ -128,7 +125,7 @@ pattern_df |>
     name ~ px(100),
     designer.name ~ px(80),
     craft ~ px(50),
-    gauge ~ px(50),
+    gauge ~ px(60),
     yarn_weight_description ~ px(50)
   ) |>
     cols_align(

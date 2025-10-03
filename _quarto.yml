@@ -8,9 +8,8 @@ format:
      - icon: activity
        href: https://www.ravelry.com/people/amcsw
     theme:
-      - solarized
       - brand
-      # - custom.scss
+      - custom.scss
 project:
   output-dir: docs
 execute:
