@@ -154,12 +154,13 @@ pattern_df |>
   ) |>
   cols_width(
     photos ~ pct(15),
-    name ~ pct(15),
+    name ~ pct(13),
     change ~ pct(2),
-    designer.name ~ pct(15),
-    craft ~ pct(12),
-    gauge ~ pct(15),
-    yarn_weight_description ~ pct(15),
+    designer.name ~ pct(12),
+    price ~ pct(8)
+    craft ~ pct(10),
+    gauge ~ pct(10),
+    yarn_weight_description ~ pct(10),
     favourites ~ pct(5),
     projects ~ pct(5)
   ) |>
@@ -180,7 +181,8 @@ pattern_df |>
     gauge = md("**Gauge**"),
     favourites = "",
     projects = "",
-    craft = md("**Craft**")
+    craft = md("**Craft**"),
+    price = md("**Price**")
   ) |>
   sub_missing(
     columns = everything(),
