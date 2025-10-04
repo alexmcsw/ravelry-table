@@ -7,6 +7,8 @@ library(purrr)
 library(tidyr)
 
 
+hot_yesterday <- read.csv("./data/pattern_rank.csv")
+
 hot_right_now <- search_patterns(page_size = 20)
 
 # Step 1: Fetch top 25 patterns
@@ -192,6 +194,13 @@ pattern_df |>
     "
   )
 
+
+
+```
+
+```{r}
+
+write.csv(pattern_df |> select(id, name, rank), "./data/pattern_rank.csv", row.names = FALSE)
 
 
 ```

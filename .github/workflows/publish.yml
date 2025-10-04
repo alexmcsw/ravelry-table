@@ -42,3 +42,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RAVELRY_USERNAME: ${{ secrets.USERNAME_RAVELRY }}
           RAVELRY_PASSWORD: ${{ secrets.PWD_RAVELRY }}
+
+      - name: Commit pattern_rank
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add pattern_rank.csv
+          git commit -m "Save pattern_rank"
+          git push
+
