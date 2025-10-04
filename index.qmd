@@ -202,6 +202,6 @@ pattern_df |>
 
 ```{r}
 
-write.csv(pattern_df |> select(id, name, rank), "./data/hot_yesterday.csv", row.names = FALSE)
+write.csv(pattern_df |> select(id, name, rank), "data/hot_yesterday.csv", row.names = FALSE)
 
 ```

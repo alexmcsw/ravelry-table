@@ -43,11 +43,11 @@ jobs:
           RAVELRY_USERNAME: ${{ secrets.USERNAME_RAVELRY }}
           RAVELRY_PASSWORD: ${{ secrets.PWD_RAVELRY }}
 
-      - name: List files and check diff
+      - name: Check for hot_yesterday.csv
         run: |
-          ls -l
-          git status
-          git diff
+          ls -l data
+          cat data/hot_yesterday.csv || echo "File not found"
+
 
       - name: Commit hot_yesterday
         run: |
