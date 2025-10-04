@@ -217,7 +217,7 @@ pattern_df |>
       overflow-y: unset !important;
     }
     
-    #custom .gt_col_heading {
+    .gt_col_heading {
       position: sticky !important;
       top: -5px !important;
       z-index: 10 !important;
