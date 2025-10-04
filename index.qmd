@@ -56,6 +56,12 @@ pattern_df <- pattern_details |>
 ```{r}
 
 pattern_df |>
+  merge(
+    hot_yesterday,
+    by = c("id", "name"),
+    suffixes = c("","_yesterday"),
+    all.x = TRUE
+  ) |>
   select(
     photos,
     name,
@@ -66,7 +72,18 @@ pattern_df |>
     gauge_divisor,
     yarn_weight_description,
     projects_count,
-    favorites_count
+    favorites_count,
+    rank,
+    rank_yesterday
+  ) |>
+  mutate(
+    change = case_when(
+      rank - rank_yesterday > 0 ~ "arrow-up",
+      rank - rank_yesterday < 0 ~ "arrow-down",
+      .default = NA
+    ),
+    .keep = "unused",
+    .after = photos
   ) |>
   gt() |>
     text_transform(
@@ -80,6 +97,11 @@ pattern_df |>
         ))
       })
     }
+  ) |>
+  fmt_icon(
+    columns = change,
+    fill_color = c("arrow-up" = "#128800ff", "arrow-down" = "#c50101ff",
+    height = "1.5em")
   ) |>
   cols_merge(
     columns = c(name, permalink),
@@ -123,8 +145,9 @@ pattern_df |>
     pattern = "<<{1} sts / {2} in>>"
   ) |>
   cols_width(
-    photos ~ pct(25),
+    photos ~ pct(23),
     name ~ pct(15),
+    change ~ pct(2),
     designer.name ~ pct(15),
     craft ~ pct(10),
     gauge ~ pct(15),
@@ -143,6 +166,7 @@ pattern_df |>
   cols_label(
     photos = "",
     name = md("**Pattern**"),
+    change = "",
     designer.name = md("**Designer**"),
     yarn_weight_description = md("**Weight**"),
     gauge = md("**Gauge**"),
@@ -150,7 +174,12 @@ pattern_df |>
     projects = "",
     craft = md("**Craft**")
   ) |>
-  tab_options(
+  sub_missing(
+    columns = everything(),
+    rows = everything(),
+    missing_text = ""
+  ) |>
+    tab_options(
     table.background.color = "#1E1F26",
     table.font.size = px(16),
     table.border.top.color = "transparent",
@@ -202,6 +231,6 @@ pattern_df |>
 
 ```{r}
 
-write.csv(pattern_df |> select(id, name, rank), "data/hot_yesterday.csv", row.names = FALSE)
+write.csv(pattern_df |> select(id, name, rank) |> mutate(date = Sys.Date()), "data/hot_yesterday.csv", row.names = FALSE)
 
 ```
