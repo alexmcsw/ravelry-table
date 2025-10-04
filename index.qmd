@@ -204,5 +204,4 @@ pattern_df |>
 
 write.csv(pattern_df |> select(id, name, rank), "./data/pattern_rank.csv", row.names = FALSE)
 
-
 ```
