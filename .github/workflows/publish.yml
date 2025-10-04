@@ -1,14 +1,5 @@
-on:
-  workflow_dispatch:
-  push:
-    branches: main
-  schedule:
-    - cron: '0 13 * * *'
-    
-name: Quarto Publish
-
 env:
-  RENV_PATHS_ROOT: ~/.cache/R/renv
+  RENV_PATHS_CACHE: ~/.cache/R/renv
 
 jobs:
   build-deploy:
@@ -22,7 +13,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt install libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev libnode-dev libx11-dev pandoc libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev libwebp-dev
+          sudo apt install -y libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev libnode-dev libx11-dev pandoc libharfbuzz-dev libfribidi-dev libpng-dev libtiff5-dev libjpeg-dev libwebp-dev
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -32,19 +23,13 @@ jobs:
         with:
           r-version: '4.2.0'
 
-      - name: Cache packages
+      - name: Cache R packages
         uses: actions/cache@v3
         with:
-          path: ${{ env.RENV_PATHS_ROOT }}
+          path: ~/.cache/R/renv
           key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
           restore-keys: |
             ${{ runner.os }}-renv-
-
-      - name: Restore packages
-        shell: Rscript {0}
-        run: |
-          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
-          renv::restore()
 
       - name: Install R Dependencies
         uses: r-lib/actions/setup-renv@v2
@@ -67,5 +52,3 @@ jobs:
           git add -f data/hot_yesterday.csv
           git commit -m "Update hot_yesterday" || echo "No changes to commit"
           git push
-
-
