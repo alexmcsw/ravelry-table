@@ -90,14 +90,14 @@ pattern_df |>
   ) |>
   cols_add(
     favourites = "./static/favourites.svg",
-    project = "./static/needles.svg") |>
+    projects = "./static/needles.svg") |>
   text_transform(
     locations = cells_body(columns = favourites),
     fn = function(x) {
       mapply(function(img, val) {
         html(paste0(
           "<div style='display:flex; align-items:center; gap:10px;'>",
-          as.character(local_image(img, height = 40)),
+          as.character(local_image(img, height = 30)),
           "<span>", val, "</span>",
           "</div>"
         ))
@@ -105,12 +105,12 @@ pattern_df |>
     }
   ) |>
   text_transform(
-    locations = cells_body(columns = project),
+    locations = cells_body(columns = projects),
     fn = function(x) {
       mapply(function(img, val) {
         html(paste0(
           "<div style='display:flex; align-items:center; gap:10px;'>",
-          as.character(local_image(img, height = 40)),
+          as.character(local_image(img, height = 30)),
           "<span>", val, "</span>",
           "</div>"
         ))
@@ -123,20 +123,22 @@ pattern_df |>
     pattern = "<<{1} sts / {2} in>>"
   ) |>
   cols_width(
-    photos ~ px(200),
-    name ~ px(100),
-    designer.name ~ px(80),
-    craft ~ px(50),
-    gauge ~ px(60),
-    yarn_weight_description ~ px(50)
+    photos ~ pct(25),
+    name ~ pct(15),
+    designer.name ~ pct(15),
+    craft ~ pct(10),
+    gauge ~ pct(15),
+    yarn_weight_description ~ pct(10),
+    favourites ~ pct(5),
+    projects ~ pct(5),
+  ) |>
+    cols_align(
+    align = "left",
+    columns = everything()
   ) |>
     cols_align(
     align = "center",
-    columns = c("photos", "favorites_count")
-  ) |>
-  cols_align(
-    align = "left",
-    columns = c("gauge", "gauge_divisor")
+    columns = c("photos", "favourites", "projects")
   ) |>
   cols_label(
     photos = "",
@@ -145,7 +147,7 @@ pattern_df |>
     yarn_weight_description = md("**Weight**"),
     gauge = md("**Gauge**"),
     favourites = "",
-    project = "",
+    projects = "",
     craft = md("**Craft**")
   ) |>
   tab_options(
@@ -170,7 +172,7 @@ pattern_df |>
   opt_css(
     css = "
     table tr:nth-child(odd) {
-      background-color: #2C2F3A;
+      background-color: var(--brand-slate);
     }
 
     table tr:hover {
