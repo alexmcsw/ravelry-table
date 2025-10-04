@@ -22,8 +22,6 @@ pattern_details <- get_patterns(top_patterns$id)
 pattern_df <- pattern_details |>
   select(
     favorites_count,
-    price,
-    currency,
     id,
     name,
     permalink,
@@ -69,8 +67,6 @@ pattern_df |>
     name,
     permalink,
     designer.name,
-    price,
-    currency,
     craft,
     gauge,
     gauge_divisor,
@@ -111,10 +107,6 @@ pattern_df |>
     columns = c(name, permalink),
     pattern = "<a href='{2}' target='_blank'>{1}</a>"
   ) |>
-  cols_merge(
-    columns = c(price, currency),
-    pattern = "<<{1} ({2})>>"
-  ) |>
   fmt_markdown(
     columns = name
   ) |>
@@ -154,13 +146,12 @@ pattern_df |>
   ) |>
   cols_width(
     photos ~ pct(15),
-    name ~ pct(13),
+    name ~ pct(15),
     change ~ pct(2),
-    designer.name ~ pct(12),
-    price ~ pct(8)
-    craft ~ pct(10),
-    gauge ~ pct(10),
-    yarn_weight_description ~ pct(10),
+    designer.name ~ pct(15),
+    craft ~ pct(12),
+    gauge ~ pct(15),
+    yarn_weight_description ~ pct(15),
     favourites ~ pct(5),
     projects ~ pct(5)
   ) |>
@@ -181,8 +172,7 @@ pattern_df |>
     gauge = md("**Gauge**"),
     favourites = "",
     projects = "",
-    craft = md("**Craft**"),
-    price = md("**Price**")
+    craft = md("**Craft**")
   ) |>
   sub_missing(
     columns = everything(),
