@@ -47,7 +47,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git add pattern_rank.csv
+          git add data/pattern_rank.csv
           git commit -m "Save pattern_rank"
           git push
 
