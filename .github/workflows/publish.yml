@@ -43,12 +43,6 @@ jobs:
           RAVELRY_USERNAME: ${{ secrets.USERNAME_RAVELRY }}
           RAVELRY_PASSWORD: ${{ secrets.PWD_RAVELRY }}
 
-      - name: Check for hot_yesterday.csv
-        run: |
-          ls -l data
-          cat data/hot_yesterday.csv || echo "File not found"
-
-
       - name: Commit hot_yesterday
         run: |
           git config --global user.name 'github-actions'
