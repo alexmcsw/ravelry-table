@@ -83,7 +83,7 @@ pattern_df |>
       .default = NA
     ),
     .keep = "unused",
-    .after = photos
+    .before = photos
   ) |>
   gt() |>
     text_transform(
@@ -145,13 +145,13 @@ pattern_df |>
     pattern = "<<{1} sts / {2} in>>"
   ) |>
   cols_width(
-    photos ~ pct(23),
+    photos ~ pct(20),
     name ~ pct(15),
     change ~ pct(2),
     designer.name ~ pct(15),
     craft ~ pct(10),
     gauge ~ pct(15),
-    yarn_weight_description ~ pct(10),
+    yarn_weight_description ~ pct(15),
     favourites ~ pct(5),
     projects ~ pct(5),
   ) |>
