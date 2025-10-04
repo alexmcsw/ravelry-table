@@ -7,7 +7,7 @@ library(purrr)
 library(tidyr)
 
 
-hot_yesterday <- read.csv("./data/pattern_rank.csv")
+hot_yesterday <- read.csv("./data/hot_yesterday.csv")
 
 hot_right_now <- search_patterns(page_size = 20)
 
@@ -202,6 +202,6 @@ pattern_df |>
 
 ```{r}
 
-write.csv(pattern_df |> select(id, name, rank), "./data/pattern_rank.csv", row.names = FALSE)
+write.csv(pattern_df |> select(id, name, rank), "./data/hot_yesterday.csv", row.names = FALSE)
 
 ```

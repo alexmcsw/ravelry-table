@@ -43,11 +43,18 @@ jobs:
           RAVELRY_USERNAME: ${{ secrets.USERNAME_RAVELRY }}
           RAVELRY_PASSWORD: ${{ secrets.PWD_RAVELRY }}
 
-      - name: Commit pattern_rank
+      - name: List files and check diff
+        run: |
+          ls -l
+          git status
+          git diff
+
+      - name: Commit hot_yesterday
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git add data/pattern_rank.csv
-          git commit -m "Save pattern_rank"
+          git add -f data/hot_yesterday.csv
+          git commit -m "Update hot_yesterday" || echo "No changes to commit"
           git push
+
 
