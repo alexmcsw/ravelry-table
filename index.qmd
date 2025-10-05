@@ -61,7 +61,7 @@ pattern_details |>
       c(id, favorites_count, projects_count, gauge, gauge_divisor),
       as.numeric
     ),
-    permalink = paste0("www.ravelry.com/patterns/library/", permalink),
+    permalink = paste0("https://www.ravelry.com/patterns/library/", permalink),
     across(where(is.character), ~ na_if(., ""))
   ) |>
 mutate(photos = paste0(
