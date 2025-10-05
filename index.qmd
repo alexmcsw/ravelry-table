@@ -78,13 +78,13 @@ pattern_df |>
   ) |>
   mutate(
     change = case_when(
-      rank - rank_yesterday > 0 ~ "arrow-up",
-      rank - rank_yesterday < 0 ~ "arrow-down",
+      rank - rank_yesterday < 0 ~ "arrow-up",
+      rank - rank_yesterday > 0 ~ "arrow-down",
       .default = NA
     ),
-    .keep = "unused",
     .before = photos
   ) |>
+  arrange(rank) |>
   gt() |>
     text_transform(
     locations = cells_body(columns = photos),
@@ -139,7 +139,7 @@ pattern_df |>
       }, x, pattern_df$projects_count, SIMPLIFY = FALSE)
     }
   ) |>
-  cols_hide(columns = c(projects_count, favorites_count))|>
+  cols_hide(columns = c(projects_count, favorites_count, rank, rank_yesterday))|>
   cols_merge(
     columns = c(gauge, gauge_divisor),
     pattern = "<<{1} sts / {2} in>>"
@@ -230,6 +230,6 @@ pattern_df |>
 
 ```{r}
 
-write.csv(pattern_df |> select(id, name, rank) |> mutate(date = Sys.Date()), "data/hot_yesterday.csv", row.names = FALSE)
+# write.csv(pattern_df |> select(id, name, rank) |> mutate(date = Sys.Date()), "data/hot_yesterday.csv", row.names = FALSE)
 
 ```
