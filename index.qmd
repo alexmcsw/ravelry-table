@@ -22,7 +22,9 @@ top_patterns <- search_patterns(page_size = 25) |>
 pattern_details <- get_patterns(top_patterns$id)
 
 # assemble df
-pattern_df <- pattern_details |>
+pattern_df <- 
+
+pattern_details |>
   select(
     favorites_count,
     id,
@@ -38,8 +40,10 @@ pattern_df <- pattern_details |>
     craft,
     free
   ) |>
-  mutate(photos = map(photos, pluck, "small_url", 1)) |>
-  unnest(photos) |>
+  mutate(
+    photos_small = map(photos, pluck, "small_url", 1),
+    photos_large = str_replace(photos_small, "_small_best_fit", "")
+  ) |>
   mutate(craft = map(craft, pluck, "name", 1)) |>
   unnest(craft) |>
   merge(top_patterns |> select(id, designer.name, rank), by = "id") |>
@@ -49,9 +53,17 @@ pattern_df <- pattern_details |>
       c(id, favorites_count, projects_count, gauge, gauge_divisor),
       as.numeric
     ),
-    permalink = paste0("ravelry.com/patterns/library/", permalink),
+    permalink = paste0("www.ravelry.com/patterns/library/", permalink),
     across(where(is.character), ~ na_if(., ""))
-  )
+  ) |>
+mutate(photos = paste0(
+  "<a href='", photos_large, "' data-lightbox='ravelry-gallery", id, "'>",
+  "<img src='", photos_small, "' style='width:150px; height:150px; object-fit:cover; border:2px solid white;'>",
+  "</a>"
+))
+
+
+
 
 ```
 
@@ -89,18 +101,7 @@ pattern_df |>
   ) |>
   arrange(rank) |>
   gt() |>
-    text_transform(
-    locations = cells_body(columns = photos),
-    fn = function(x) {
-      lapply(x, function(url) {
-        html(paste0(
-          "<div style='width:150px; height:150px; overflow:hidden; display:inline-block; border:2px solid white;'>",
-          "<img src='", url, "' style='width:300px; height:150px; object-fit:cover;'>",
-          "</div>"
-        ))
-      })
-    }
-  ) |>
+  fmt_markdown(columns = photos) |>
   fmt_icon(
     columns = change,
     fill_color = c("arrow-up" = "#128800ff", "arrow-down" = "#c50101ff",
