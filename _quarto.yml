@@ -10,8 +10,6 @@ format:
     theme:
       - brand
       - custom.scss
-  html:
-    include-in-header: lightbox-header.html
 
 project:
   output-dir: docs
