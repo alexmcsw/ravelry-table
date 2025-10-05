@@ -37,3 +37,31 @@ table {
 .navbar-title {
   font-weight: bold;
 }
+
+
+/* for lightbox */
+/* Force Lightbox modal to center and size consistently */
+
+
+.lightboxOverlay {
+  background-color: rgba(30, 30, 30, 0.95) !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+
+
+.lb-image {
+  border: 2px solid white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  height: 400px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  display: block;
+  margin: auto;
+}
+
