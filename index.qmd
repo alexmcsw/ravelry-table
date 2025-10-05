@@ -1,5 +1,5 @@
 
-```{r}
+```{r get-data}
 library(ravelRy)
 library(dplyr)
 library(gt)
@@ -53,7 +53,7 @@ pattern_df <- pattern_details |>
 ```
 
 
-```{r}
+```{r make-table}
 
 pattern_df |>
   merge(
@@ -145,9 +145,9 @@ pattern_df |>
     pattern = "<<{1} sts / {2} in>>"
   ) |>
   cols_width(
-    photos ~ pct(15),
+    photos ~ pct(12),
     name ~ pct(15),
-    change ~ pct(2),
+    change ~ pct(5),
     designer.name ~ pct(15),
     craft ~ pct(12),
     gauge ~ pct(15),
@@ -161,7 +161,7 @@ pattern_df |>
   ) |>
     cols_align(
     align = "center",
-    columns = c("photos", "favourites", "projects")
+    columns = c("photos", "favourites", "projects", "change")
   ) |>
   cols_label(
     photos = "",
@@ -192,7 +192,7 @@ pattern_df |>
   ) |> 
   tab_style_body(
     style = cell_borders(
-      sides = c("top", "bottom"),
+      sides = c("top", "right", "left", "bottom"),
       weight = px(0) # Remove row borders
     ),
     fn = function(x) { is.numeric(x) | is.character(x) }
@@ -206,19 +206,10 @@ pattern_df |>
     table tr:hover {
       background-color: #3A4A6B;
     }
-
-    .cell-output-display {
-      overflow-x: unset !important;
-    }
-    
-    div#custom {
-      overflow-x: unset !important;
-      overflow-y: unset !important;
-    }
     
     .gt_col_heading {
       position: sticky !important;
-      top: -5px !important;
+      top: 0px !important;
       z-index: 10 !important;
     }
     "
@@ -228,8 +219,8 @@ pattern_df |>
 
 ```
 
-```{r}
+```{r write-history}
 
-# write.csv(pattern_df |> select(id, name, rank) |> mutate(date = Sys.Date()), "data/hot_yesterday.csv", row.names = FALSE)
+write.csv(pattern_df |> select(id, name, rank) |> mutate(date = Sys.Date()), "data/hot_yesterday.csv", row.names = FALSE)
 
 ```

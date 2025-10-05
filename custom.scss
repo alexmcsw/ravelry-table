@@ -10,9 +10,6 @@ table {
   max-width: 100%;
   overflow: auto;
 }
-td {
-  mid-width: 200px;
-}
 
 
 /* Scrollbar theming */
@@ -36,36 +33,7 @@ td {
     background: $brand-slate; /* Match the track background color */
 }
 
-
-/* Make superscripts in gt table not italic */
-.gt_footnote_marks sup {
-  font-style: normal;
-}
-
-/* Make sure album art in gt table always stays square and maintains aspect ratio */ 
-.gt_table img {
-  object-fit: contain;
-}
-
-/* Defined custom class in generate_circle_svg function to be able to modify the font size of the nanoplot text only */ 
-div.html-fill-item.html-fill-container text:not(.circle-text) {
-  font-size: 6em; /* This will exclude text elements with the 'circle-text' class */
-}
-
-/* Remove underline from hyperlinks*/
-a {
-  color: $brand-stitch-blue;
-}
-
 /* Bold navbar title */
 .navbar-title {
   font-weight: bold;
-}
-
-/* Height of embedded Spotify Web Player */
-.TrackWidget_widgetContainer__gADzr {
-  height: 100vh !important;
-}
-div.html-fill-item.html-fill-container .custom-iframe {
-  justify-content: center; /* Center the web player only, not the gt table */
 }
