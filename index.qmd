@@ -1,3 +1,11 @@
+::: {.cell}
+```{=html}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+```
+:::
+
 
 ```{r get-data}
 library(ravelRy)
@@ -57,7 +65,7 @@ pattern_details |>
     across(where(is.character), ~ na_if(., ""))
   ) |>
 mutate(photos = paste0(
-  "<a href='", photos_large, "' data-lightbox='ravelry-gallery", id, "'>",
+  "<a href='", photos_large, "' data-lightbox='ravelry-gallery", "'>",
   "<img src='", photos_small, "' style='width:150px; height:150px; object-fit:cover; border:2px solid white;'>",
   "</a>"
 ))
