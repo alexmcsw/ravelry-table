@@ -5,20 +5,23 @@ library(dplyr)
 library(gt)
 library(purrr)
 library(tidyr)
+library(stringr)
 
 
 hot_yesterday <- read.csv("./data/hot_yesterday.csv")
 
-hot_right_now <- search_patterns(page_size = 20)
-
-# Step 1: Fetch top 25 patterns
-top_patterns <- search_patterns(page_size = 20) |>
+# grab top 25 patterns, 
+# check for knit/crochet alongs to remove,
+# then reduce total count to top 20
+top_patterns <- search_patterns(page_size = 25) |>
+  filter(!str_detect(name, regex(str_c(c("kal", "kal", "along"), collapse = "|"), ignore_case = TRUE))) |>
+  slice_head(n = 20) |>
   mutate(rank = 1:20)
 
-# Step 2: Get detailed info for each pattern
+# grab full pattern details
 pattern_details <- get_patterns(top_patterns$id)
 
-# Step 3: Assemble dataframe
+# assemble df
 pattern_df <- pattern_details |>
   select(
     favorites_count,
