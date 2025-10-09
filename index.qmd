@@ -30,9 +30,7 @@ top_patterns <- search_patterns(page_size = 25) |>
 pattern_details <- get_patterns(top_patterns$id)
 
 # assemble df
-pattern_df <- 
-
-pattern_details |>
+pattern_df <- pattern_details |>
   select(
     favorites_count,
     id,
@@ -75,12 +73,41 @@ mutate(photos = paste0(
 
 ```
 
+```{r make-plot}
+
+df_temp <- data.frame()
+
+
+# add filtering for just those appearing in current HRN?
+for (name in hot_yesterday$name |> unique()) {
+  data.frame(
+    name = name,
+    id = hot_yesterday[hot_yesterday$name == name,]$id |> head(1),
+    date = seq(Sys.Date() - 6, Sys.Date(), by = "days"),
+    rank = NA
+  ) |> rbind(df_temp) -> df_temp
+}
+
+hot_yesterday <- df_temp |> merge(
+  hot_yesterday,
+  by = c("name", "date"),
+  all.x = TRUE
+) |>
+select(-c(id.y, rank.x)) |>
+rename(
+  "id" = id.x, "rank" = rank.y
+) |> 
+group_by(id) |>
+mutate(history = list(as.list(setNames(20 - rank, date))))
+
+```
+
 
 ```{r make-table}
 
 pattern_df |>
   merge(
-    hot_yesterday,
+    hot_yesterday |> filter(date == Sys.Date() - 1),
     by = c("id", "name"),
     suffixes = c("","_yesterday"),
     all.x = TRUE
@@ -97,7 +124,8 @@ pattern_df |>
     projects_count,
     favorites_count,
     rank,
-    rank_yesterday
+    rank_yesterday,
+    history
   ) |>
   mutate(
     change = case_when(
@@ -156,6 +184,21 @@ pattern_df |>
     columns = c(gauge, gauge_divisor),
     pattern = "<<{1} sts / {2} in>>"
   ) |>
+  cols_nanoplot(
+    columns = history,
+    new_col_label = md("**History**"),
+    new_col_name = "nanoplot",
+    after = "yarn_weight_description",
+    missing_vals = "zero",
+    options = nanoplot_options(
+      data_point_stroke_color = "#f2938a",
+      data_point_fill_color = "#f2938a",
+      data_line_stroke_color = "#a9bcf9",
+      data_area_fill_color = "#A8A8B3",
+      show_y_axis_guide = FALSE,
+      vertical_guide_stroke_color = "#172869"
+    )
+  ) |>
   cols_width(
     photos ~ pct(12),
     name ~ pct(15),
@@ -173,7 +216,11 @@ pattern_df |>
   ) |>
     cols_align(
     align = "center",
-    columns = c("photos", "favourites", "projects", "change")
+    columns = c("photos", "favourites", "projects", "change", "nanoplot")
+  ) |>
+  cols_move(
+    columns = c(favourites, projects),
+    after = designer.name
   ) |>
   cols_label(
     photos = "",
@@ -233,6 +280,18 @@ pattern_df |>
 
 ```{r write-history}
 
-write.csv(pattern_df |> select(id, name, rank) |> mutate(date = Sys.Date()), "data/hot_yesterday.csv", row.names = FALSE)
+pattern_df |>
+  select(id, name, rank) |>
+  mutate(date = Sys.Date()) |>
+  rbind(
+    hot_yesterday |>
+    filter(
+      !(is.na(rank)),
+      date <= Sys.Date() - 1) |>
+    select(id, name, rank, date)
+  ) |>
+  filter(Sys.Date() - date < 6) |>
+  arrange(date, rank) |>
+  write.csv("data/hot_yesterday.csv", row.names = FALSE)
 
 ```
