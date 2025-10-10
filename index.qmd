@@ -23,7 +23,7 @@ hot_yesterday <- read.csv("./data/hot_yesterday.csv")
 # check for knit/crochet alongs to remove,
 # then reduce total count to top 20
 top_patterns <- search_patterns(page_size = 25) |>
-  filter(!str_detect(name, regex(str_c(c("kal", "kal", "along"), collapse = "|"), ignore_case = TRUE))) |>
+  filter(!str_detect(name, regex(str_c(c("cal", "kal", "along", "a-long"), collapse = "|"), ignore_case = TRUE))) |>
   slice_head(n = 20) |>
   mutate(rank = 1:20)
 
