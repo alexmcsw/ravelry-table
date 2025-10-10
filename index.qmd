@@ -6,6 +6,7 @@
 ```
 :::
 
+# Dashboard
 
 ```{r get-data}
 library(ravelRy)
@@ -298,3 +299,7 @@ pattern_df |>
   write.csv("data/hot_yesterday.csv", row.names = FALSE)
 
 ```
+
+# About
+
+Hi
