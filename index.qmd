@@ -98,7 +98,7 @@ rename(
   "id" = id.x, "rank" = rank.y
 ) |> 
 group_by(id) |>
-mutate(history = list(as.list(setNames(20 - rank, date))))
+mutate(history = list(as.list(setNames(21 - rank, date))))
 
 ```
 
@@ -131,7 +131,8 @@ pattern_df |>
     change = case_when(
       rank - rank_yesterday < 0 ~ "arrow-up",
       rank - rank_yesterday > 0 ~ "arrow-down",
-      .default = NA
+      rank - rank_yesterday == 0 ~ NA,
+      .default = "star"
     ),
     .before = photos
   ) |>
@@ -141,6 +142,7 @@ pattern_df |>
   fmt_icon(
     columns = change,
     fill_color = c("arrow-up" = "#128800ff", "arrow-down" = "#c50101ff",
+    "star" = "#776602ff",
     height = "1.5em")
   ) |>
   cols_merge(
@@ -190,6 +192,7 @@ pattern_df |>
     new_col_name = "nanoplot",
     after = "yarn_weight_description",
     missing_vals = "zero",
+    autoscale = TRUE,
     options = nanoplot_options(
       data_point_stroke_color = "#f2938a",
       data_point_fill_color = "#f2938a",
