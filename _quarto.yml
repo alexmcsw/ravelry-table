@@ -5,8 +5,6 @@ format:
     nav-buttons: 
      - icon: github
        href: https://github.com/alexmcsw/ravelry-table
-     - icon: activity
-       href: https://www.ravelry.com/people/amcsw
     theme:
       - brand
       - custom.scss

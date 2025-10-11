@@ -321,7 +321,7 @@ Find my (textile) work on [my ravelry](https://www.ravelry.com/people/amcsw) and
 
 ::: {.card title="**My submission** ⚒️" fill="false"}
 
-[Ravelry](ravelry.com) is a website for fibre artists to track their projects, browse, and sell knitting or crochet patterns. Ravelry has a "hot right now" section which features the patterns with the most visits in the last 24 hours.
+[Ravelry](https://www.ravelry.com/) is a website for fibre artists to track their projects, browse, and sell knitting or crochet patterns. Ravelry has a "hot right now" section which features the patterns with the most visits in the last 24 hours.
 
 In this table I fetch the Ravelry "hot right now" top 20 and present pattern details in a convenient and easy to read table so fibre artists can quickly decide if they're interested in a pattern. I remove any patterns related to knit/crochet-alongs as I personally find them really annoying and think the page traffic for such patterns is somewhat artificial anyways.
 
