@@ -4,7 +4,7 @@ My submission for the [2025 Table Contest](https://posit.co/blog/announcing-the-
 
 ## The idea
 
-[Ravelry](ravelry.com) is a website for fibre artists to track and plan their projects as well as browse and sell knitting or crochet patterns. Ravelry has a "hot right now" section is features the patterns with the most visits in the last 24 hours. This list is a nice way to see what's trending but to view any pattern details you have to go in and click on each pattern.
+[Ravelry](https://www.ravelry.com/) is a website for fibre artists to track and plan their projects as well as browse and sell knitting or crochet patterns. Ravelry has a "hot right now" section is features the patterns with the most visits in the last 24 hours. This list is a nice way to see what's trending but to view any pattern details you have to go in and click on each pattern.
 
 In this table I fetch the Ravelry "hot right now" top 20 and present pattern details in a convenient and easy to read table so fibre artists can quickly decide if they're interested in a pattern.
 
