@@ -189,7 +189,7 @@ pattern_df |>
   ) |>
   cols_nanoplot(
     columns = history,
-    new_col_label = md("**History**"),
+    new_col_label = md("**Hotness History**"),
     new_col_name = "nanoplot",
     after = "yarn_weight_description",
     missing_vals = "zero",
@@ -276,7 +276,22 @@ pattern_df |>
       z-index: 10 !important;
     }
     "
-  )
+  ) |> tab_source_note(
+  source_note = html("
+    <div style='font-size:14px;'>
+      Source: Ravelry Hot Right Now <br>
+      <em>Icon legend: 
+        <span><span style='color:#128800ff;'>↑</span> improved</span>, 
+        <span><span style='color:#c50101ff;'>↓</span> dropped</span>, 
+        <span><span style='color:#776602ff;'>★</span> new entry</span>
+      </em>
+    </div>
+  ")
+)
+
+
+
+
 
 
 
@@ -304,7 +319,7 @@ pattern_df |>
 
 ## Row
 
-### Column {width=35%}
+### Column {width=20%}
 
 [![Alex McSween](static/profile.jpg)](https://alexmcsw.github.io/)
 
@@ -332,6 +347,8 @@ In this table I fetch the Ravelry "hot right now" top 20 and present pattern det
 ::: {.card title="Technical details 👩‍💻"}
 
 I used the [`ravelRy`](https://github.com/walkerkq/ravelRy/) R package by Kaylin Pavlik to easily access the Ravelry api. I wrote some R code to fetch the 20 top "hot right now" patterns, some additional details about the patterns and their designers, and used the `gt` package to display the results in a beautiful table hosted in a [Quarto dashboard with GitHub pages](#dashboard). Using my Github action (which runs automatically each day) I store the most recent data so I can check the history and see if a pattern has ranked up or down. I also included a 7-day nanoplot to see a pattern's rank history. Finally, I used CSS and JS to add a lightbox to view a bigger version of each photo in the table.
+
+I am not overly familiar with (nor do I enjoy working with) CSS or JS so I borrowed some code (which I then modified to suit my needs) from my friend, colleague, R-Ladies co-organizer, and last year's table contest winner, Melissa Van Bussel.
 
 :::
 
