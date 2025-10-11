@@ -32,6 +32,6 @@ typography:
   monospace: Segoe UI
   monospace-inline:
     color: mist
-    background-color: primary # or use a named color from `color`
+    background-color: thistle-dark # or use a named color from `color`
   monospace-block: 
     background-color: mist

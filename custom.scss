@@ -38,6 +38,19 @@ table {
   font-weight: bold;
 }
 
+.nav-link {
+
+    &.active {
+      font-weight: bold !important;
+      color: $brand-midnight !important;
+      background-color: $brand-peach !important;
+    }
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
 
 /* nanoplot text! Merci Melissa <3 */ 
 div.html-fill-item.html-fill-container text:not(.circle-text) {

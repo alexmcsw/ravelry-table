@@ -10,6 +10,8 @@ format:
     theme:
       - brand
       - custom.scss
+    scrolling: true 
+    expandable: false
 
 project:
   output-dir: docs
