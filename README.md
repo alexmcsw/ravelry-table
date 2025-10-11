@@ -12,6 +12,15 @@ In this table I fetch the Ravelry "hot right now" top 20 and present pattern det
 
 I used the [`ravelRy`](https://github.com/walkerkq/ravelRy/) R package by Kaylin Pavlik to easily access the Ravelry api. I wrote some R code to fetch the 20 top "hot right now" patterns, fetch additional details about the patterns and their designers, and used the `gt` package to display the results in a beautiful table hosted in a Quarto dashboard with GitHub pages.
 
+To run the code for this table locally you will need to create a developer account at <https://www.ravelry.com/pro/developer> and create an app with read only access. You'll need to save your API username and pass in an `R.environ` like so:
+
+```{r}
+RAVELRY_USERNAME="username"
+RAVELRY_PASSWORD="pass"
+```
+
+Next you can install dependencies with `renv::restore()` and render or run code chunks in `index.qmd`.
+
 ## Further work
 
 I've played with the Ravelry API before! Check out my [R-Ladies Ottawa 2025 data hackathon submission](https://github.com/alexmcsw/ravelry-in-review) where I examined my own knitting data in a quarto dashboard.
