@@ -63,15 +63,17 @@ I'm inspired by the intersection of math, stats, data science and textile arts. 
 
 # Dashboard
 
-```{r get-data}
+```{r libraries}
 library(ravelRy)
 library(dplyr)
 library(gt)
 library(purrr)
 library(tidyr)
 library(stringr)
+```
 
 
+```{r get-data}
 # grab top 25 patterns, 
 # check for knit/crochet alongs to remove,
 # then reduce total count to top 20

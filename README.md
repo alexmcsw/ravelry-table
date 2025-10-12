@@ -4,13 +4,13 @@ My submission for the [2025 Table Contest](https://posit.co/blog/announcing-the-
 
 ## The idea
 
-[Ravelry](https://www.ravelry.com/) is a website for fibre artists to track and plan their projects as well as browse and sell knitting or crochet patterns. Ravelry has a "hot right now" section is features the patterns with the most visits in the last 24 hours. This list is a nice way to see what's trending but to view any pattern details you have to go in and click on each pattern.
+[Ravelry](https://www.ravelry.com/) is a website for fibre artists to track and plan their projects as well as browse and sell knitting or crochet patterns. Ravelry has a "hot right now" section which features the patterns with the most visits in the last 24 hours. This list is a nice way to see what's trending but to view any pattern details you have to go in and click on each pattern.
 
 In this table I fetch the Ravelry "hot right now" top 20 and present pattern details in a convenient and easy to read table so fibre artists can quickly decide if they're interested in a pattern.
 
 ## Technical details
 
-I used the [`ravelRy`](https://github.com/walkerkq/ravelRy/) R package by Kaylin Pavlik to easily access the Ravelry api. I wrote some R code to fetch the 20 top "hot right now" patterns, fetch additional details about the patterns and their designers, and used the `gt` package to display the results in a beautiful table hosted in a Quarto dashboard with GitHub pages.
+I used the [`ravelRy`](https://github.com/walkerkq/ravelRy/) R package by Kaylin Pavlik to easily access the Ravelry API. I wrote some R code to fetch the 20 top "hot right now" patterns, fetch additional details about the patterns and their designers, and used the `gt` package to display the results in a beautiful table hosted in a Quarto dashboard with GitHub pages. I set up a GitHub action to automatically fetch new data each day and rerender my dashboard.
 
 To run the code for this table locally you will need to create a developer account at <https://www.ravelry.com/pro/developer> and create an app with read only access. You'll need to save your API username and pass in an `R.environ` like so:
 
@@ -20,6 +20,26 @@ RAVELRY_PASSWORD="pass"
 ```
 
 Next you can install dependencies with `renv::restore()` and render or run code chunks in `index.qmd`.
+
+To use the scheduled GitHub Action in this repo, you'll also need to add the above credentials as GitHub environment variables.
+
+### API Issues?
+
+If you're having issues with the Ravelry API or the `ravelRy` package, you can instead comment out or remove the `get-data` chunk in `index.qmd` and replace it with
+
+```{r get-data}
+
+pattern_df <- read.csv("data/pattern_df.csv")
+
+```
+
+and replace the `hot_yesterday` file path on line 133 with
+
+```{r}
+hot_yesterday <- read.csv("./data/hot_yesterday_2025-10-12.csv")
+```
+
+`data/pattern_df.csv` contains a snapshot of the expected pattern details of the Ravelry Hot Right now on October 12th, 2025 and `data/hot_yesterday_2025-10-12.csv` contains a snapshot of the appropriate Hot Right Now history for that date. Please note that using this method, the GitHub actions associated with this repository won't work as expected.
 
 ## Further work
 
