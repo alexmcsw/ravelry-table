@@ -6,6 +6,61 @@
 ```
 :::
 
+
+
+# About
+
+## Row
+
+### Column {width=20%}
+
+[![](static/profile.jpg)](https://alexmcsw.github.io/)
+
+
+::: {.card title="**About Me** 💖"}
+
+Hi, I'm Alex! I'm a data scientist based in Ottawa, Ontario. I'm an organizer for [R-Ladies Ottawa](https://rladies-ottawa.github.io/) and am an avid knitter, sewist, and fibre artist 🧶
+
+Find my (textile) work on [my ravelry](https://www.ravelry.com/people/amcsw) and my (technical) work on [my GitHub](https://github.com/alexmcsw) and [personal site](https://alexmcsw.github.io/)
+
+:::
+
+### Column
+
+::: {.card title="**My submission** ⚒️" fill="false"}
+
+[Ravelry](https://www.ravelry.com/) is a website for fibre artists to track their projects, browse, and sell knitting or crochet patterns. Ravelry has a "hot right now" section which features the patterns with the most visits in the last 24 hours.
+
+In this table I fetch the Ravelry "hot right now" top 20 and present pattern details in a convenient and easy to read table so fibre artists can quickly decide if they're interested in a pattern. I remove any patterns related to knit/crochet-alongs as I personally find them really annoying and think the page traffic for such patterns is somewhat artificial anyways.
+
+:::
+
+#### Row {.tabset}
+
+::: {.card title="Technical details 👩‍💻"}
+
+I used the [`ravelRy`](https://github.com/walkerkq/ravelRy/) R package by Kaylin Pavlik to easily access the Ravelry api. I wrote some R code to fetch the 20 top "hot right now" patterns, some additional details about the patterns and their designers, and used the `gt` package to display the results in a beautiful table hosted in a [Quarto dashboard with GitHub pages](#dashboard). Using my Github action (which runs automatically each day) I store the most recent data so I can check the history and see if a pattern has ranked up or down. I also included a 7-day nanoplot to see a pattern's rank history. Finally, I used CSS and JS to add a lightbox to view a bigger version of each photo in the table.
+
+I am not overly familiar with (nor do I enjoy working with) CSS or JS so I borrowed some code (which I then modified to suit my needs) from my friend, colleague, R-Ladies co-organizer, and last year's table contest winner, Melissa Van Bussel.
+
+:::
+
+
+::: {.card title="Further work 🚦"}
+
+I've played with the Ravelry API before! Check out my [R-Ladies Ottawa 2025 data hackathon submission](https://github.com/alexmcsw/ravelry-in-review) where I examined my own knitting data in another quarto dashboard.
+
+I'm inspired by the intersection of math, stats, data science and textile arts. Here are some projects/artists that I find inspiring:
+
+- [clay_muchi on Instagram](https://www.instagram.com/clay_mushi/?hl=en): Topographical crochet.
+- [Daina Taimina](https://www.si.edu/spotlight/women-mathematicians/daina-taimina-a-modern-day-mathematical-model-maker): Inventor of the crocheted hyperbolic model.
+- [Typeknitting](https://typeknitting.net/): An exploration of the typographical potential of handknitting.
+- [Aperiodic Einstein Monotile](https://www.ravelry.com/patterns/library/aperiodic-einstein-monotile): A knitting pattern for the new (ish) monotile.
+- [Copola Views Quilt](https://www.karennybergart.com/warehouse-for-digital-downloads/standard_products/digital-download-quilt-pattern-coupola-views): Quilt pattern inspired by the view from the ISS
+
+:::
+
+
 # Dashboard
 
 ```{r get-data}
@@ -16,8 +71,6 @@ library(purrr)
 library(tidyr)
 library(stringr)
 
-
-hot_yesterday <- read.csv("./data/hot_yesterday.csv")
 
 # grab top 25 patterns, 
 # check for knit/crochet alongs to remove,
@@ -69,8 +122,26 @@ mutate(photos = paste0(
   "</a>"
 ))
 
+```
 
+```{r history}
 
+hot_yesterday <- read.csv("./data/hot_yesterday.csv") |>
+mutate(date = as.Date(date))
+
+hot_yesterday <- rbind(
+  hot_yesterday |> filter(date < Sys.Date()),
+  pattern_df |>
+    select(id, name, rank) |>
+    mutate(
+      date = Sys.Date()
+    )
+)
+
+hot_yesterday |>
+  filter(Sys.Date() - date < 6) |>
+  arrange(date, rank) |>
+  write.csv("data/hot_yesterday.csv", row.names = FALSE)
 
 ```
 
@@ -79,7 +150,7 @@ mutate(photos = paste0(
 df_temp <- data.frame()
 
 
-# add filtering for just those appearing in current HRN?
+# expand time series for history
 for (name in hot_yesterday$name |> unique()) {
   data.frame(
     name = name,
@@ -99,7 +170,8 @@ rename(
   "id" = id.x, "rank" = rank.y
 ) |> 
 group_by(id) |>
-mutate(history = list(as.list(setNames(21 - rank, date))))
+mutate(history = list(as.list(setNames(21 - rank, date)))) # invert the ranking so the plot appears the right orientation
+
 
 ```
 
@@ -297,72 +369,3 @@ pattern_df |>
 
 ```
 
-```{r write-history}
-
-pattern_df |>
-  select(id, name, rank) |>
-  mutate(date = Sys.Date()) |>
-  rbind(
-    hot_yesterday |>
-    filter(
-      !(is.na(rank)),
-      date <= Sys.Date() - 1) |>
-    select(id, name, rank, date)
-  ) |>
-  filter(Sys.Date() - date < 6) |>
-  arrange(date, rank) |>
-  write.csv("data/hot_yesterday.csv", row.names = FALSE)
-
-```
-
-# About
-
-## Row
-
-### Column {width=20%}
-
-[![Alex McSween](static/profile.jpg)](https://alexmcsw.github.io/)
-
-
-::: {.card title="**About Me** 💖"}
-
-Hi, I'm Alex! I'm a data scientist based in Ottawa, Ontario. I'm an organizer for [R-Ladies Ottawa](https://rladies-ottawa.github.io/) and am an avid knitter, sewist, and fibre artist 🧶
-
-Find my (textile) work on [my ravelry](https://www.ravelry.com/people/amcsw) and my (technical) work on [my GitHub](https://github.com/alexmcsw) and [personal site](https://alexmcsw.github.io/)
-
-:::
-
-### Column
-
-::: {.card title="**My submission** ⚒️" fill="false"}
-
-[Ravelry](https://www.ravelry.com/) is a website for fibre artists to track their projects, browse, and sell knitting or crochet patterns. Ravelry has a "hot right now" section which features the patterns with the most visits in the last 24 hours.
-
-In this table I fetch the Ravelry "hot right now" top 20 and present pattern details in a convenient and easy to read table so fibre artists can quickly decide if they're interested in a pattern. I remove any patterns related to knit/crochet-alongs as I personally find them really annoying and think the page traffic for such patterns is somewhat artificial anyways.
-
-:::
-
-#### Row {.tabset}
-
-::: {.card title="Technical details 👩‍💻"}
-
-I used the [`ravelRy`](https://github.com/walkerkq/ravelRy/) R package by Kaylin Pavlik to easily access the Ravelry api. I wrote some R code to fetch the 20 top "hot right now" patterns, some additional details about the patterns and their designers, and used the `gt` package to display the results in a beautiful table hosted in a [Quarto dashboard with GitHub pages](#dashboard). Using my Github action (which runs automatically each day) I store the most recent data so I can check the history and see if a pattern has ranked up or down. I also included a 7-day nanoplot to see a pattern's rank history. Finally, I used CSS and JS to add a lightbox to view a bigger version of each photo in the table.
-
-I am not overly familiar with (nor do I enjoy working with) CSS or JS so I borrowed some code (which I then modified to suit my needs) from my friend, colleague, R-Ladies co-organizer, and last year's table contest winner, Melissa Van Bussel.
-
-:::
-
-
-::: {.card title="Further work 🚦"}
-
-I've played with the Ravelry API before! Check out my [R-Ladies Ottawa 2025 data hackathon submission](https://github.com/alexmcsw/ravelry-in-review) where I examined my own knitting data in another quarto dashboard.
-
-I'm inspired by the intersection of math, stats, data science and textile arts. Here are some projects/artists that I find inspiring:
-
-- [clay_muchi on Instagram](https://www.instagram.com/clay_mushi/?hl=en): Topographical crochet.
-- [Daina Taimina](https://www.si.edu/spotlight/women-mathematicians/daina-taimina-a-modern-day-mathematical-model-maker): Inventor of the crocheted hyperbolic model.
-- [Typeknitting](https://typeknitting.net/): An exploration of the typographical potential of handknitting.
-- [Aperiodic Einstein Monotile](https://www.ravelry.com/patterns/library/aperiodic-einstein-monotile): A knitting pattern for the new (ish) monotile.
-- [Copola Views Quilt](https://www.karennybergart.com/warehouse-for-digital-downloads/standard_products/digital-download-quilt-pattern-coupola-views): Quilt pattern inspired by the view from the ISS
-
-:::
