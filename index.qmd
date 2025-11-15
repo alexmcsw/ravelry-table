@@ -14,7 +14,7 @@
 
 ### Column {width=20%}
 
-[![](static/profile.jpg)](https://alexmcsw.github.io/)
+[![](static/profile.jpg)](https://alexmcsw.github.io/){fig-alt="A portrait of Alex."}
 
 
 ::: {.card title="**About Me** 💖"}
@@ -74,11 +74,19 @@ library(stringr)
 
 
 ```{r get-data}
-# grab top 25 patterns, 
+# grab top 25 patterns,
 # check for knit/crochet alongs to remove,
 # then reduce total count to top 20
 top_patterns <- search_patterns(page_size = 25) |>
-  filter(!str_detect(name, regex(str_c(c("cal", "kal", "along", "a-long"), collapse = "|"), ignore_case = TRUE))) |>
+  filter(
+    !str_detect(
+      name,
+      regex(
+        str_c(c("cal", "kal", "along", "a-long"), collapse = "|"),
+        ignore_case = TRUE
+      )
+    )
+  ) |>
   slice_head(n = 20) |>
   mutate(rank = 1:20)
 
@@ -118,18 +126,27 @@ pattern_df <- pattern_details |>
     permalink = paste0("https://www.ravelry.com/patterns/library/", permalink),
     across(where(is.character), ~ na_if(., ""))
   ) |>
-mutate(photos = paste0(
-  "<a href='", photos_large, "' data-lightbox='ravelry-gallery", "'>",
-  "<img src='", photos_small, "' style='width:150px; height:150px; object-fit:cover; border:2px solid white;'>",
-  "</a>"
-))
+  mutate(
+    photos = paste0(
+      "<a href='",
+      photos_large,
+      "' data-lightbox='ravelry-gallery",
+      "'>",
+      "<img src='",
+      photos_small,
+      "' alt='",
+      name,
+      ".' style='width:150px; height:150px; object-fit:cover; border:2px solid white;'>",
+      "</a>"
+    )
+  )
 
 ```
 
 ```{r history}
 
 hot_yesterday <- read.csv("./data/hot_yesterday.csv") |>
-mutate(date = as.Date(date))
+  mutate(date = as.Date(date))
 
 hot_yesterday <- rbind(
   hot_yesterday |> filter(date < Sys.Date()),
@@ -156,23 +173,26 @@ df_temp <- data.frame()
 for (name in hot_yesterday$name |> unique()) {
   data.frame(
     name = name,
-    id = hot_yesterday[hot_yesterday$name == name,]$id |> head(1),
+    id = hot_yesterday[hot_yesterday$name == name, ]$id |> head(1),
     date = seq(Sys.Date() - 6, Sys.Date(), by = "days"),
     rank = NA
-  ) |> rbind(df_temp) -> df_temp
+  ) |>
+    rbind(df_temp) -> df_temp
 }
 
-hot_yesterday <- df_temp |> merge(
-  hot_yesterday,
-  by = c("name", "date"),
-  all.x = TRUE
-) |>
-select(-c(id.y, rank.x)) |>
-rename(
-  "id" = id.x, "rank" = rank.y
-) |> 
-group_by(id) |>
-mutate(history = list(as.list(setNames(21 - rank, date)))) # invert the ranking so the plot appears the right orientation
+hot_yesterday <- df_temp |>
+  merge(
+    hot_yesterday,
+    by = c("name", "date"),
+    all.x = TRUE
+  ) |>
+  select(-c(id.y, rank.x)) |>
+  rename(
+    "id" = id.x,
+    "rank" = rank.y
+  ) |>
+  group_by(id) |>
+  mutate(history = list(as.list(setNames(21 - rank, date)))) # invert the ranking so the plot appears the right orientation
 
 
 ```
@@ -184,7 +204,7 @@ pattern_df |>
   merge(
     hot_yesterday |> filter(date == Sys.Date() - 1),
     by = c("id", "name"),
-    suffixes = c("","_yesterday"),
+    suffixes = c("", "_yesterday"),
     all.x = TRUE
   ) |>
   select(
@@ -216,9 +236,12 @@ pattern_df |>
   fmt_markdown(columns = photos) |>
   fmt_icon(
     columns = change,
-    fill_color = c("arrow-up" = "#128800ff", "arrow-down" = "#c50101ff",
-    "star" = "#776602ff",
-    height = "1.5em")
+    fill_color = c(
+      "arrow-up" = "#128800ff",
+      "arrow-down" = "#c50101ff",
+      "star" = "#776602ff",
+      height = "1.5em"
+    )
   ) |>
   cols_merge(
     columns = c(name, permalink),
@@ -229,34 +252,51 @@ pattern_df |>
   ) |>
   cols_add(
     favourites = "./static/favourites.svg",
-    projects = "./static/needles.svg") |>
+    projects = "./static/needles.svg"
+  ) |>
   text_transform(
     locations = cells_body(columns = favourites),
     fn = function(x) {
-      mapply(function(img, val) {
-        html(paste0(
-          "<div style='display:flex; align-items:center; gap:10px;'>",
-          as.character(local_image(img, height = 30)),
-          "<span>", val, "</span>",
-          "</div>"
-        ))
-      }, x, pattern_df$favorites_count, SIMPLIFY = FALSE)
+      mapply(
+        function(img, val) {
+          html(paste0(
+            "<div style='display:flex; align-items:center; gap:10px;'alt='Favourites'>",
+            as.character(local_image(img, height = 30)),
+            "<span>",
+            val,
+            "</span>",
+            "</div>"
+          ))
+        },
+        x,
+        pattern_df$favorites_count,
+        SIMPLIFY = FALSE
+      )
     }
   ) |>
   text_transform(
     locations = cells_body(columns = projects),
     fn = function(x) {
-      mapply(function(img, val) {
-        html(paste0(
-          "<div style='display:flex; align-items:center; gap:10px;'>",
-          as.character(local_image(img, height = 30)),
-          "<span>", val, "</span>",
-          "</div>"
-        ))
-      }, x, pattern_df$projects_count, SIMPLIFY = FALSE)
+      mapply(
+        function(img, val) {
+          html(paste0(
+            "<div style='display:flex; align-items:center; gap:10px'; 'alt='Projects'>",
+            as.character(local_image(img, height = 30)),
+            "<span>",
+            val,
+            "</span>",
+            "</div>"
+          ))
+        },
+        x,
+        pattern_df$projects_count,
+        SIMPLIFY = FALSE
+      )
     }
   ) |>
-  cols_hide(columns = c(projects_count, favorites_count, rank, rank_yesterday))|>
+  cols_hide(
+    columns = c(projects_count, favorites_count, rank, rank_yesterday)
+  ) |>
   cols_merge(
     columns = c(gauge, gauge_divisor),
     pattern = "<<{1} sts / {2} in>>"
@@ -288,11 +328,11 @@ pattern_df |>
     favourites ~ pct(5),
     projects ~ pct(5)
   ) |>
-    cols_align(
+  cols_align(
     align = "left",
     columns = everything()
   ) |>
-    cols_align(
+  cols_align(
     align = "center",
     columns = c("photos", "favourites", "projects", "change", "nanoplot")
   ) |>
@@ -316,7 +356,7 @@ pattern_df |>
     rows = everything(),
     missing_text = ""
   ) |>
-    tab_options(
+  tab_options(
     table.background.color = "#1E1F26",
     table.font.size = px(16),
     table.border.top.color = "transparent",
@@ -326,14 +366,16 @@ pattern_df |>
     column_labels.border.bottom.color = "transparent",
     column_labels.border.top.color = "transparent",
     table.margin.right = pct(1)
-  ) |> 
+  ) |>
   tab_style_body(
     style = cell_borders(
       sides = c("top", "right", "left", "bottom"),
       weight = px(0) # Remove row borders
     ),
-    fn = function(x) { is.numeric(x) | is.character(x) }
-  ) |> 
+    fn = function(x) {
+      is.numeric(x) | is.character(x)
+    }
+  ) |>
   opt_css(
     css = "
     table tr:nth-child(odd) {
@@ -343,31 +385,28 @@ pattern_df |>
     table tr:hover {
       background-color: #3A4A6B;
     }
-    
+
     .gt_col_heading {
       position: sticky !important;
       top: 0px !important;
       z-index: 10 !important;
     }
     "
-  ) |> tab_source_note(
-  source_note = html("
+  ) |>
+  tab_source_note(
+    source_note = html(
+      "
     <div style='font-size:14px;'>
       Source: Ravelry Hot Right Now <br>
-      <em>Icon legend: 
-        <span><span style='color:#128800ff;'>↑</span> improved</span>, 
-        <span><span style='color:#c50101ff;'>↓</span> dropped</span>, 
+      <em>Icon legend:
+        <span><span style='color:#128800ff;'>↑</span> improved</span>,
+        <span><span style='color:#c50101ff;'>↓</span> dropped</span>,
         <span><span style='color:#776602ff;'>★</span> new entry</span>
       </em>
     </div>
-  ")
-)
-
-
-
-
-
-
+  "
+    )
+  )
 
 ```
 
