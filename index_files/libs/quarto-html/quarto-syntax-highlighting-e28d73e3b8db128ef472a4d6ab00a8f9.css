@@ -33,7 +33,7 @@
 
 /* other quarto variables */
 :root {
-  --quarto-font-monospace: Segoe UI;
+  --quarto-font-monospace: "Segoe UI";
 }
 
 /* syntax highlight based on Pandoc's rules */
@@ -233,4 +233,4 @@ code span.wa {
   content: "</";
 }
 
-/*# sourceMappingURL=331f72a211ae9de728e42a7a2c2a0f0c.css.map */
+/*# sourceMappingURL=3c9e881ff967fa03565398ea7d9b2217.css.map */
